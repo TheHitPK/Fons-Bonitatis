@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+.claude/settings.local.json
+public/images/general/-4924837470323977082_121.jpg.zip
