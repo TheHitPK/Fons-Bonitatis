@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DraftNotice from '../../components/DraftNotice.astro';
+
+const amounts = ['10', '25', '50', '100'];
+---
+<BaseLayout title="Donar" description="Apoya el trabajo de Fons Bonitatis Foundation con una donación.">
+  <DraftNotice note="Completa los datos reales de Zelle, PayPal y transferencia bancaria antes de publicar esta página." />
+
+  <PageHero
+    image="/images/general/fondo2022.png"
+    alt="Paciente atendido por el equipo médico del Sistema de Salud Madre Rafols"
+    label="Donar"
+    title="Tu donación se convierte en salud"
+    lead="Elige un monto o ingresa el que prefieras. Cada aporte se destina directamente a cirugías, tratamientos y jornadas médicas."
+  />
+
+  <section class="section">
+    <div class="container max-w-[560px]">
+      <h2>1. Elige un monto</h2>
+      <div class="amount-picker grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        {amounts.map((amount, i) => (
+          <button
+            type="button"
+            class={`amount-btn rounded-lg border px-4 py-3 text-center font-semibold transition-colors ${i === 0 ? 'border-accent bg-accent text-white' : 'border-border text-navy hover:border-accent'}`}
+            data-amount={amount}
+          >${amount}</button>
+        ))}
+      </div>
+      <label for="custom-amount" class="block text-sm font-semibold text-navy mb-1.5">O ingresa otro monto (USD)</label>
+      <input
+        type="number"
+        id="custom-amount"
+        min="1"
+        placeholder="Ej: 35"
+        class="w-full px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent mb-8"
+      />
+
+      <h2>2. Elige un método de pago</h2>
+      <div class="grid grid-cols-1 gap-4">
+        <div class="bg-surface border border-border rounded-brand p-6">
+          <h3 class="text-lg mb-2">Zelle</h3>
+          <p class="text-sm mb-0">Envía tu donación a: <strong>[correo o teléfono Zelle pendiente]</strong></p>
+        </div>
+        <div class="bg-surface border border-border rounded-brand p-6">
+          <h3 class="text-lg mb-2">PayPal</h3>
+          <p class="text-sm mb-0">Enlace de donación: <strong>[pendiente cuenta PayPal]</strong></p>
+        </div>
+        <div class="bg-surface border border-border rounded-brand p-6">
+          <h3 class="text-lg mb-2">Transferencia bancaria (Venezuela)</h3>
+          <p class="text-sm mb-0">Banco: <strong>[pendiente]</strong> · Cuenta: <strong>[pendiente]</strong> · RIF: <strong>[pendiente]</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.amount-btn');
+  const customInput = document.querySelector<HTMLInputElement>('#custom-amount');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => {
+        b.classList.remove('border-accent', 'bg-accent', 'text-white');
+        b.classList.add('border-border', 'text-navy');
+      });
+      btn.classList.remove('border-border', 'text-navy');
+      btn.classList.add('border-accent', 'bg-accent', 'text-white');
+      if (customInput) customInput.value = '';
+    });
+  });
+
+  customInput?.addEventListener('input', () => {
+    buttons.forEach((b) => {
+      b.classList.remove('border-accent', 'bg-accent', 'text-white');
+      b.classList.add('border-border', 'text-navy');
+    });
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+import { navItems } from '../data/nav.js';
+
+const locale = Astro.currentLocale ?? 'es';
+
+const donateLabel = locale === 'en' ? 'Donate now' : 'Donar ahora';
+---
+<header class="sticky top-0 z-50 bg-white border-b border-border">
+  <div class="container flex items-center justify-between gap-6 py-3.5">
+    <a href="/" class="flex items-center">
+      <img src="/images/general/fbf1.png" alt="Fons Bonitatis Foundation" class="h-12 w-auto" />
+    </a>
+    <nav class="hidden md:flex gap-7 text-sm font-semibold text-navy">
+      {navItems.map(item => (
+        <a href={item.href} class="hover:text-accent transition-colors">{locale === 'en' ? item.en : item.es}</a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-1.5 text-xs font-bold">
+        <a href="/" class={locale === 'es' ? 'text-navy' : 'text-body-muted hover:text-navy transition-colors'}>ES</a>
+        <span class="text-border">|</span>
+        <a href="/en/" class={locale === 'en' ? 'text-navy' : 'text-body-muted hover:text-navy transition-colors'}>EN</a>
+      </div>
+      <a href="/donar" class="btn btn-primary whitespace-nowrap">{donateLabel}</a>
+    </div>
+  </div>
+</header>

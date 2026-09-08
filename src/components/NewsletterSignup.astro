@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Recibe nuestras noticias',
+  text = 'Historias de impacto, jornadas próximas y formas de ayudar, directo a tu correo.'
+} = Astro.props;
+---
+<div class="bg-surface border border-border rounded-brand p-6 sm:p-8">
+  <h3 class="text-lg mb-1">{title}</h3>
+  <p class="text-sm mb-4">{text}</p>
+  <form
+    class="flex flex-col sm:flex-row gap-3"
+    action="mailto:contacto@fonsbonitatis.org"
+    method="post"
+    enctype="text/plain"
+  >
+    <input
+      type="email"
+      name="Correo"
+      required
+      placeholder="tu@correo.com"
+      class="flex-1 px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+    />
+    <button type="submit" class="btn btn-primary whitespace-nowrap">Suscribirme</button>
+  </form>
+</div>

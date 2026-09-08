@@ -1,0 +1,11 @@
+---
+interface Props {
+  note: string;
+}
+const { note } = Astro.props;
+---
+<div class="bg-amber-50 border-y border-amber-200">
+  <div class="container py-3 text-sm text-amber-800">
+    <strong>Vista previa interna (no enlazada en el sitio):</strong> {note}
+  </div>
+</div>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const values = [
+  { title: 'Ética', text: 'Actuamos con transparencia y honestidad en cada decisión y cada alianza.' },
+  { title: 'Sustentabilidad', text: 'Construimos programas que perduran y generan impacto a largo plazo.' },
+  { title: 'Cooperación', text: 'Trabajamos junto a instituciones aliadas para multiplicar el alcance de cada proyecto.' },
+  { title: 'Compromiso social', text: 'Ponemos a las personas más vulnerables en el centro de cada iniciativa.' },
+  { title: 'Calidad humana', text: 'Tratamos a cada paciente y familia con respeto, calidez y dignidad.' },
+  { title: 'Criterio científico', text: 'Fundamentamos nuestro trabajo en evidencia médica y buenas prácticas.' }
+];
+---
+<BaseLayout title="La Fundación" description="Misión, visión y valores de Fons Bonitatis Foundation.">
+  <PageHero
+    image="/images/general/foto.png"
+    alt="Capilla del Sistema de Salud Madre Rafols"
+    label="La Fundación"
+    title="Salud, educación y dignidad para los venezolanos más desposeídos"
+    lead="Somos una organización caritativa y benéfica sin fines de lucro, que tiene como propósito proveer de recursos humanos, económicos y tecnológicos a personas e instituciones que ofrecen soluciones en materia de salud, educación, investigación científica y las bellas artes."
+  />
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <span class="section-label">Misión</span>
+        <p class="mb-0">Proveer recursos humanos, económicos y tecnológicos a personas e instituciones que ofrecen soluciones en materia de salud, educación, investigación científica y las bellas artes.</p>
+      </div>
+      <div>
+        <span class="section-label">Visión</span>
+        <p class="mb-0">Ser una organización de referencia nacional e internacional en materia de ayuda social, educativa, científica y cultural, que permita el desarrollo integral de las personas más vulnerables y, por ende, de la sociedad venezolana.</p>
+      </div>
+      <div>
+        <span class="section-label">Valores</span>
+        <p class="mb-0">Ética, sustentabilidad, cooperación, compromiso social, calidad humana y criterio científico guían cada decisión y cada alianza que hacemos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Nuestros valores</span>
+      <h2>Los principios que guían cada proyecto</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+        {values.map(value => (
+          <div class="bg-surface border border-border rounded-brand p-6">
+            <h3 class="text-lg mb-2">{value.title}</h3>
+            <p class="text-sm mb-0">{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Súmate a nuestra misión"
+    text="Cada donación fortalece el Sistema de Salud Madre Rafols y las jornadas médicas que llevamos a las familias más vulnerables del Zulia."
+    buttonText="Quiero donar"
+    buttonHref="/donar"
+  />
+</BaseLayout>

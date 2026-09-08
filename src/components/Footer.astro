@@ -1,0 +1,56 @@
+---
+import { navItems } from '../data/nav.js';
+
+const year = new Date().getFullYear();
+const locale = Astro.currentLocale ?? 'es';
+const t = locale === 'en'
+  ? {
+      linksTitle: 'Links',
+      contactTitle: 'Contact information',
+      helpTitle: 'Help',
+      helpText: 'Support our medical work with a donation.',
+      donate: 'Donate now',
+      address: 'Francisco de Miranda Avenue<br />Circunvalación 2, Maracaibo<br />Venezuela, Zulia State'
+    }
+  : {
+      linksTitle: 'Enlaces',
+      contactTitle: 'Información de contacto',
+      helpTitle: 'Ayuda',
+      helpText: 'Apoya nuestra labor médica con una donación.',
+      donate: 'Donar ahora',
+      address: 'Avenida Francisco de Miranda<br />Circunvalación 2, Maracaibo<br />Venezuela, Estado Zulia'
+    };
+---
+<footer class="bg-navy text-white pt-12 pb-6 mt-16">
+  <div class="container grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8">
+    <div>
+      <img src="/images/general/fbnwhite.png" alt="Fons Bonitatis Foundation" class="h-14 w-auto block mb-3.5" />
+      <p class="text-[#C7CEDE]" set:html={t.address} />
+    </div>
+    <div>
+      <h3 class="text-white text-lg mb-3">{t.linksTitle}</h3>
+      <ul class="flex flex-col gap-2 list-none p-0 m-0">
+        {navItems.map(item => (
+          <li>
+            <a href={item.href} class="text-[#C7CEDE] hover:text-accent transition-colors">{locale === 'en' ? item.en : item.es}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-white text-lg mb-3">{t.contactTitle}</h3>
+      <p class="text-[#C7CEDE]">
+        <a href="mailto:contacto@fonsbonitatis.org" class="hover:text-accent transition-colors">contacto@fonsbonitatis.org</a><br />
+        <a href="tel:+12089910930" class="hover:text-accent transition-colors">+1 (208) 991-0930</a>
+      </p>
+    </div>
+    <div>
+      <h3 class="text-white text-lg mb-3">{t.helpTitle}</h3>
+      <p class="text-[#C7CEDE] mb-4">{t.helpText}</p>
+      <a href="/donar" class="btn btn-primary">{t.donate}</a>
+    </div>
+  </div>
+  <div class="container mt-10 pt-6 border-t border-white/15 text-sm text-[#9AA3B8]">
+    <p>Copyright © {year} Fons Bonitatis Foundation</p>
+  </div>
+</footer>

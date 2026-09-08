@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DraftNotice from '../../components/DraftNotice.astro';
+
+const commitments = [
+  { title: 'Programas médicos y cirugías', text: 'La mayor parte de cada donación se destina directamente a tratamientos, cirugías y jornadas médicas.' },
+  { title: 'Insumos y medicamentos', text: 'Compra y distribución de medicamentos y equipo médico para el Sistema de Salud Madre Rafols.' },
+  { title: 'Jornadas comunitarias', text: 'Logística y transporte de equipos multidisciplinarios a parroquias y comunidades del Zulia.' },
+  { title: 'Administración mínima', text: 'Solo lo necesario para operar de forma responsable y sostenible.' }
+];
+---
+<BaseLayout title="Transparencia" description="Cómo usamos cada donación en Fons Bonitatis Foundation.">
+  <DraftNotice note="Falta incorporar cifras auditadas reales (porcentajes o informe anual en PDF) antes de publicar. Por ahora el contenido es solo cualitativo, sin números inventados." />
+
+  <PageHero
+    image="/images/general/A10.png"
+    alt="Interior arquitectónico del Sistema de Salud Madre Rafols"
+    label="Transparencia"
+    title="Sabes exactamente a dónde va tu donación"
+    lead="Cada aporte se administra con responsabilidad y se destina directamente a quienes más lo necesitan."
+  />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Nuestro compromiso</span>
+      <h2>En qué se invierte cada donación</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {commitments.map(item => (
+          <div class="bg-surface border border-border rounded-brand p-6">
+            <h3 class="text-lg mb-2">{item.title}</h3>
+            <p class="text-sm mb-0">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container max-w-[560px] text-center">
+      <h2>Informe anual</h2>
+      <p>Próximamente disponible para descarga en esta sección.</p>
+      <span class="btn btn-secondary opacity-60 cursor-not-allowed pointer-events-none">Descargar informe (PDF) — próximamente</span>
+    </div>
+  </section>
+</BaseLayout>

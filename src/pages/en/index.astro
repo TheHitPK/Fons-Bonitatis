@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ImpactStats from '../../components/ImpactStats.astro';
+import PartnersStrip from '../../components/PartnersStrip.astro';
+import StoryCard from '../../components/StoryCard.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const stats = [
+  { value: '+3,200', label: 'Patients treated' },
+  { value: '+180', label: 'Free surgeries' },
+  { value: '12', label: 'Years of service' },
+  { value: '+40', label: 'Medical outreach days' }
+];
+
+const stories = [
+  {
+    image: '/images/general/IMG-20200803-WA0004.jpg',
+    title: 'José de Jesús regains his sight',
+    excerpt: 'A full, free surgery and recovery, made possible by our medical team and Social Work department.',
+    href: '/historias#jose-de-jesus'
+  },
+  {
+    image: '/images/general/IMG-20200803-WA0003.jpg',
+    title: 'Over 150 patients treated in Maracaibo',
+    excerpt: 'A medical outreach day at San Tarcisio Parish brought comprehensive care to those who need it most.',
+    href: '/historias#maracaibo-150'
+  },
+  {
+    image: '/images/general/IMG-20200803-WA0005.jpg',
+    title: "Milagros' cleft palate recovery",
+    excerpt: 'Another milestone made possible through our alliance with Fundación Cambiando Vidas.',
+    href: '/historias#milagros-labio-paladar'
+  }
+];
+---
+<BaseLayout title="Home" description="Fons Bonitatis Foundation - Health, hope and dignity for those who need it most.">
+  <Hero
+    label="Sistema de Salud Madre Rafols"
+    title="Health, hope and dignity for those who need it most"
+    lead="We bring free medical care to vulnerable families in Venezuela. Every donation becomes a surgery, a treatment, or a transformed life."
+    primaryCtaText="Donate now"
+    primaryCtaHref="/donar"
+    secondaryCtaText="See our work"
+    secondaryCtaHref="/trabajo"
+  />
+  <ImpactStats stats={stats} />
+  <PartnersStrip label="In partnership with" />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Impact stories</span>
+      <h2>Every story is a transformed life</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        {stories.map(story => <StoryCard {...story} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    label="Transparency"
+    title="You know exactly where your donation goes"
+    text="Every contribution goes directly to surgeries, treatments, medication, and medical outreach days for the most vulnerable families in Zulia."
+    buttonText="Learn about our mission"
+    buttonHref="/fundacion"
+    buttonVariant="secondary"
+  />
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+interface Props {
+  stats?: Stat[];
+}
+const {
+  stats = [
+    { value: '+3.200', label: 'Pacientes atendidos' },
+    { value: '+180', label: 'Cirugías gratuitas' },
+    { value: '12', label: 'Años de labor' },
+    { value: '+40', label: 'Jornadas médicas' }
+  ]
+} = Astro.props;
+---
+<section class="py-10">
+  <div class="container grid grid-cols-2 sm:grid-cols-4 gap-4">
+    {stats.map(stat => (
+      <div class="bg-surface border border-border rounded-brand p-6 text-center">
+        <p class="font-heading text-[2rem] text-navy m-0">{stat.value}</p>
+        <p class="text-sm text-body-muted mt-1 mb-0">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

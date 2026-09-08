@@ -1,0 +1,20 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  excerpt: string;
+  href: string;
+}
+const { image, title, excerpt, href } = Astro.props;
+---
+<a
+  href={href}
+  class="block bg-surface border border-border rounded-brand overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(20,40,90,0.08)]"
+>
+  <img src={image} alt="" class="w-full aspect-[16/10] object-cover" />
+  <div class="p-5 px-[1.3rem]">
+    <h3 class="text-[1.05rem] mb-1.5 text-navy">{title}</h3>
+    <p class="text-sm mb-2.5">{excerpt}</p>
+    <span class="text-sm font-semibold text-accent">Leer historia →</span>
+  </div>
+</a>

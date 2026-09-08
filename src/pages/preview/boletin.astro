@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DraftNotice from '../../components/DraftNotice.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+---
+<BaseLayout title="Boletín" description="Suscríbete al boletín de Fons Bonitatis Foundation.">
+  <DraftNotice note="El formulario usa un enlace mailto: temporal. Para una suscripción real conviene conectar un servicio como Mailchimp o Brevo, y decidir si este bloque va como página propia o embebido en el footer." />
+
+  <PageHero
+    image="/images/general/donacion.jpeg"
+    alt="Entrega de insumos médicos durante una jornada de ayuda humanitaria"
+    label="Boletín"
+    title="Mantente al tanto de nuestro trabajo"
+    lead="Súmate a nuestra lista de correo para recibir historias de impacto, próximas jornadas médicas y formas de ayudar."
+  />
+
+  <section class="section flex justify-center">
+    <div class="container max-w-[520px]">
+      <NewsletterSignup />
+    </div>
+  </section>
+</BaseLayout>

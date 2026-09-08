@@ -1,0 +1,22 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  text: string;
+  buttonText: string;
+  buttonHref: string;
+  buttonVariant?: 'primary' | 'secondary';
+}
+const { label, title, text, buttonText, buttonHref, buttonVariant = 'primary' } = Astro.props;
+const btnClass = buttonVariant === 'secondary'
+  ? 'btn btn-secondary border-white text-white hover:bg-white hover:text-navy'
+  : 'btn btn-primary';
+---
+<section class="section bg-navy rounded-brand text-white">
+  <div class="container max-w-[700px] mx-auto text-center flex flex-col items-center">
+    {label && <span class="section-label text-white/80">{label}</span>}
+    <h2 class="text-white">{title}</h2>
+    <p class="text-white/90">{text}</p>
+    <a href={buttonHref} class={btnClass}>{buttonText}</a>
+  </div>
+</section>

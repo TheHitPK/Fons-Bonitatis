@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ImpactStats from '../components/ImpactStats.astro';
+import StoryCard from '../components/StoryCard.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import PartnersStrip from '../components/PartnersStrip.astro';
+import { stories as allStories } from '../data/stories.js';
+
+const featuredSlugs = ['jose-de-jesus', 'maracaibo-150', 'milagros-labio-paladar'];
+const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
+---
+<BaseLayout title="Inicio">
+  <Hero />
+  <ImpactStats />
+  <PartnersStrip />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Historias de impacto</span>
+      <h2>Cada historia es una vida transformada</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        {stories.map(story => <StoryCard image={story.image} title={story.title} excerpt={story.excerpt} href={`/historias#${story.slug}`} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    label="Transparencia"
+    title="Sabes exactamente a dónde va tu donación"
+    text="Cada aporte se destina directamente a cirugías, tratamientos, medicamentos y jornadas médicas para las familias más vulnerables del Zulia."
+    buttonText="Conoce nuestra misión"
+    buttonHref="/fundacion"
+    buttonVariant="secondary"
+  />
+</BaseLayout>

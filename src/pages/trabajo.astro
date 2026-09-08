@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ImpactStats from '../components/ImpactStats.astro';
+import StoryCard from '../components/StoryCard.astro';
+import { stories as allStories } from '../data/stories.js';
+
+const programs = [
+  {
+    title: 'Sistema de Salud Madre Rafols',
+    text: 'Nuestro hospital en Maracaibo ofrece consultas, cirugías, hospitalización y atención materno-infantil gratuita o a bajo costo para familias sin recursos.'
+  },
+  {
+    title: '"Madre Rafols va a tu Parroquia"',
+    text: 'Equipos médicos multidisciplinarios visitan parroquias de todo el Zulia llevando consultas, vacunación, medicamentos y cirugías a quienes no pueden trasladarse hasta el hospital.'
+  },
+  {
+    title: 'Jornadas médicas comunitarias',
+    text: 'Operativos de salud en comunidades vulnerables e indígenas, incluyendo a los pueblos Yukpa y Barí, con atención integral gratuita.'
+  },
+  {
+    title: 'Alianzas institucionales',
+    text: 'Trabajamos junto a las Hermanas de la Caridad de Santa Ana, la Fundación Cambiando Vidas, Cáritas Venezuela y la Universidad del Zulia para ampliar nuestro impacto.'
+  }
+];
+
+const featuredSlugs = ['municipio-rural-430', 'comunidades-indigenas-632', 'jesus-eloy'];
+const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
+---
+<BaseLayout title="Nuestro Trabajo" description="Conoce los programas y jornadas médicas de Fons Bonitatis Foundation en el Zulia.">
+  <PageHero
+    image="/images/general/IMG-20200803-WA0010.jpg"
+    alt="Equipo médico del Sistema de Salud Madre Rafols durante una cirugía"
+    label="Nuestra labor social"
+    title="Llevamos salud a quienes más lo necesitan"
+    lead="A través del Sistema de Salud Madre Rafols y nuestras jornadas médicas itinerantes, atendemos cada año a miles de familias vulnerables en el estado Zulia y comunidades indígenas de Venezuela."
+  />
+
+  <ImpactStats />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Programas</span>
+      <h2>Cómo trabajamos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {programs.map(program => (
+          <div class="bg-surface border border-border rounded-brand p-6">
+            <h3 class="text-lg mb-2">{program.title}</h3>
+            <p class="text-sm mb-0">{program.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container">
+      <span class="section-label">Historias recientes</span>
+      <h2>El impacto detrás de cada jornada</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        {stories.map(story => <StoryCard image={story.image} title={story.title} excerpt={story.excerpt} href={`/historias#${story.slug}`} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

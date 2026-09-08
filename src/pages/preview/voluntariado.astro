@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DraftNotice from '../../components/DraftNotice.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const areas = [
+  { title: 'Personal médico', text: 'Médicos, enfermeras y técnicos que quieran sumarse a jornadas médicas puntuales.' },
+  { title: 'Logística', text: 'Apoyo en la organización y distribución durante jornadas y entregas de insumos.' },
+  { title: 'Comunicación', text: 'Fotografía, redes sociales y difusión de nuestras historias e impacto.' },
+  { title: 'Administración', text: 'Apoyo en gestión, alianzas institucionales y trabajo social.' }
+];
+---
+<BaseLayout title="Voluntariado" description="Súmate como voluntario a Fons Bonitatis Foundation.">
+  <DraftNotice note="El formulario usa un enlace mailto: como solución temporal — conviene reemplazarlo por un formulario real (Formspree, backend propio, etc.) antes de publicar." />
+
+  <PageHero
+    image="/images/general/IMG-20200803-WA0009.jpg"
+    alt="Equipo médico junto a una familia en el Sistema de Salud Madre Rafols"
+    label="Voluntariado"
+    title="Súmate como voluntario"
+    lead="Nuestro trabajo es posible gracias a personas que donan su tiempo y talento. Hay un lugar para ti, seas o no personal médico."
+  />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Áreas donde puedes ayudar</span>
+      <h2>Formas de involucrarte</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {areas.map(area => (
+          <div class="bg-surface border border-border rounded-brand p-6">
+            <h3 class="text-lg mb-2">{area.title}</h3>
+            <p class="text-sm mb-0">{area.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container max-w-[520px]">
+      <h2>Cuéntanos de ti</h2>
+      <form
+        class="flex flex-col gap-4"
+        action="mailto:contacto@fonsbonitatis.org"
+        method="post"
+        enctype="text/plain"
+      >
+        <div>
+          <label for="v-name" class="block text-sm font-semibold text-navy mb-1.5">Nombre completo</label>
+          <input type="text" id="v-name" name="Nombre" required class="w-full px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+        </div>
+        <div>
+          <label for="v-email" class="block text-sm font-semibold text-navy mb-1.5">Correo electrónico</label>
+          <input type="email" id="v-email" name="Correo" required class="w-full px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+        </div>
+        <div>
+          <label for="v-area" class="block text-sm font-semibold text-navy mb-1.5">Área de interés</label>
+          <select id="v-area" name="Area" class="w-full px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+            {areas.map(area => <option>{area.title}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="v-message" class="block text-sm font-semibold text-navy mb-1.5">Mensaje</label>
+          <textarea id="v-message" name="Mensaje" rows="4" class="w-full px-4 py-2.5 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary justify-center">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="¿Prefieres apoyar con una donación?"
+    text="Cada aporte también transforma vidas — no es necesario donar tiempo para hacer la diferencia."
+    buttonText="Quiero donar"
+    buttonHref="/donar"
+  />
+</BaseLayout>

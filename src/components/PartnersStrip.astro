@@ -1,0 +1,30 @@
+---
+interface Props {
+  label?: string;
+}
+const { label = 'Trabajamos junto a' } = Astro.props;
+
+const partners = [
+  { name: 'Cáritas Venezuela', logo: '/images/partners/caritas.webp' },
+  { name: 'Fundación Cambiando Vidas', logo: '/images/partners/cambiando-vidas.webp' },
+  { name: 'Universidad del Zulia', logo: '/images/partners/luz.webp' },
+  { name: 'Hermanas de la Caridad de Santa Ana', logo: '/images/partners/logo-hermanas-caridad-santa-ana.webp' },
+  { name: 'The Papal Foundation', logo: '/images/partners/papal-foundation.webp' },
+  { name: 'Unión Europea', logo: '/images/partners/logotipo-union-europea-ilustracion-vectorial-icono-bandera-ue-estrellas-redondas_118339-1616.avif' }
+];
+---
+<section class="py-10 bg-surface border-y border-border">
+  <div class="container">
+    <p class="text-center text-xs uppercase tracking-wider font-bold text-body-muted mb-6">{label}</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+      {partners.map(partner => (
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          title={partner.name}
+          class="h-32 w-auto max-w-[140px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+        />
+      ))}
+    </div>
+  </div>
+</section>
