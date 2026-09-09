@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
   output: 'static',
   site: 'https://fonsbonitatis.org',
@@ -18,5 +20,10 @@ export default defineConfig({
     }
   },
 
-  integrations: [tailwind({ applyBaseStyles: false })]
+  integrations: [
+    tailwind({ applyBaseStyles: false }),
+    sitemap({
+      filter: (page) => !page.includes('/preview/') && !page.includes('/login')
+    })
+  ]
 });

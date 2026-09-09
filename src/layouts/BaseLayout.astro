@@ -6,18 +6,68 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description = 'Fons Bonitatis Foundation - Salud, esperanza y dignidad para quienes más lo necesitan.' } = Astro.props;
+const {
+  title,
+  description = 'Fons Bonitatis Foundation - Salud, esperanza y dignidad para quienes más lo necesitan.',
+  ogImage = '/images/general/fondo2022.png',
+  noindex = false
+} = Astro.props;
+
+const locale = Astro.currentLocale ?? 'es';
+const fullTitle = `${title} | Fons Bonitatis Foundation`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'Fons Bonitatis Foundation',
+  url: 'https://fonsbonitatis.org',
+  logo: new URL('/images/general/fbf1.png', Astro.site).toString(),
+  description: 'Organización caritativa sin fines de lucro que provee recursos de salud, educación e investigación científica a las comunidades más vulnerables de Venezuela.',
+  email: 'contacto@fonsbonitatis.org',
+  telephone: '+1-208-991-0930',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Avenida Francisco de Miranda, Circunvalación 2',
+    addressLocality: 'Maracaibo',
+    addressRegion: 'Zulia',
+    addressCountry: 'VE'
+  }
+};
 ---
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <title>{title} | Fons Bonitatis Foundation</title>
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalURL} />
+    <title>{fullTitle}</title>
     <link rel="icon" type="image/png" href="/images/general/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fons Bonitatis Foundation" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_VE'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} is:inline />
   </head>
   <body>
     <Header />

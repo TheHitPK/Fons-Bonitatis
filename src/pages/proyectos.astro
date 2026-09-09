@@ -1,32 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import ProjectMedia from '../components/ProjectMedia.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 
 const projects = [
   {
-    image: '/images/general/foto.png',
     title: 'Bendición de la Unidad de Infusión Oncológica',
-    excerpt: 'Con el apoyo de The Papal Foundation, inauguramos y bendecimos los nuevos espacios para el tratamiento de pacientes oncológicos, agradeciendo la generosidad del Papa Francisco hacia nuestros pacientes.'
+    excerpt: 'Bendición de los espacios de la Unidad de Infusión Oncológica del Hospital Madre Rafols, por parte de Mons. Alberto Ortega Martín, Nuncio Apostólico en Venezuela, y de Mons. José Luis Azuaje Ayala, Arzobispo Metropolitano de Maracaibo. Agradecemos el solidario e invaluable aporte de The Papal Foundation y al Papa Francisco por esta donación en favor de la salud de nuestros pacientes.',
+    video: '/images/general-2/video/VID-20241123-WA0037.mp4'
   },
   {
-    image: '/images/general/hmr.png',
     title: 'Embajada de la República Federal de Alemania visita el Hospital Madre Rafols',
-    excerpt: 'La misión diplomática alemana reconoció el desarrollo y crecimiento de la institución, fruto de años de trabajo conjunto e inversión sostenida.'
+    excerpt: 'Agradecemos a la Misión Diplomática alemana por su invaluable aporte en el desarrollo y crecimiento de la institución, del sistema de salud local, además de la salud de nuestros usuarios y pacientes.',
+    gallery: [
+      '/images/general-2/2023/IMG-20231201-WA0026.jpg',
+      '/images/general-2/2023/IMG-20231201-WA0027.jpg',
+      '/images/general-2/2023/IMG-20231201-WA0028.jpg',
+      '/images/general-2/2023/IMG-20231201-WA0029.jpg',
+      '/images/general-2/2023/IMG-20231201-WA0031.jpg',
+      '/images/general-2/2023/IMG-20231201-WA0033.jpg'
+    ]
   },
   {
-    image: '/images/general/vision11.png',
     title: 'Madre Rafols inaugura su Unidad de Cuidados Intensivos',
-    excerpt: 'Una nueva UCI amplía nuestra capacidad de atender emergencias y casos críticos con tecnología de primer nivel para la región.'
+    excerpt: 'Una nueva UCI amplía nuestra capacidad de atender emergencias y casos críticos con tecnología de primer nivel para la región.',
+    video: '/images/general-2/video/317514635_3443025252599812_4586236264297397112_n.mp4'
   },
   {
-    image: '/images/general/euro1.jpg',
     title: 'Proyecto apoyado por la Unión Europea',
-    excerpt: 'A través del Proyecto Europana, en alianza con Cáritas Venezuela y Cáritas Alemania, llevamos insumos y atención humanitaria a nuestro personal y pacientes.'
+    excerpt: 'A través de este proyecto, respaldado por la Unión Europea, llevamos insumos y atención humanitaria a nuestro personal y pacientes.',
+    video: '/images/general-2/video/videop.mp4'
   }
 ];
 ---
-<BaseLayout title="Proyectos Aprobados" description="Proyectos e iniciativas respaldadas por aliados institucionales de Fons Bonitatis Foundation.">
+<BaseLayout title="Proyectos Aprobados" description="Proyectos e iniciativas respaldadas por aliados institucionales de Fons Bonitatis Foundation." ogImage="/images/general/A10.png">
   <PageHero
     image="/images/general/A10.png"
     alt="Interior arquitectónico del Sistema de Salud Madre Rafols"
@@ -39,7 +47,7 @@ const projects = [
     <div class="container grid grid-cols-1 md:grid-cols-2 gap-6">
       {projects.map(project => (
         <article class="bg-surface border border-border rounded-brand overflow-hidden">
-          <img src={project.image} alt="" class="w-full aspect-[16/10] object-cover" />
+          <ProjectMedia title={project.title} video={project.video} gallery={project.gallery} />
           <div class="p-6">
             <h3 class="text-lg mb-2 text-navy">{project.title}</h3>
             <p class="text-sm mb-0">{project.excerpt}</p>

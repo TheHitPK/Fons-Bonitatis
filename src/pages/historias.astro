@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import ProjectMedia from '../components/ProjectMedia.astro';
 import { stories } from '../data/stories.js';
 ---
-<BaseLayout title="Historias de impacto" description="Historias reales de pacientes y comunidades atendidas por Fons Bonitatis Foundation.">
+<BaseLayout title="Historias de impacto" description="Historias reales de pacientes y comunidades atendidas por Fons Bonitatis Foundation." ogImage="/images/general/IMG-20200803-WA0009.jpg">
   <PageHero
     image="/images/general/IMG-20200803-WA0009.jpg"
     alt="Familia junto al equipo médico del Sistema de Salud Madre Rafols"
@@ -16,8 +17,8 @@ import { stories } from '../data/stories.js';
   {stories.map((story, i) => (
     <section id={story.slug} class={`section scroll-mt-24 ${i % 2 === 1 ? 'bg-surface border-y border-border' : ''}`}>
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div class={i % 2 === 1 ? 'md:order-2' : ''}>
-          <img src={story.image} alt={story.title} class="w-full aspect-[4/3] object-cover rounded-brand" />
+        <div class={`rounded-brand overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+          <ProjectMedia title={story.title} video={story.video} gallery={story.gallery} />
         </div>
         <div class={i % 2 === 1 ? 'md:order-1' : ''}>
           <h2>{story.title}</h2>

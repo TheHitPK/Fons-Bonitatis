@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  video?: string;
+  gallery?: string[];
+  image?: string;
+}
+const { title, video, gallery, image } = Astro.props;
+---
+{video && (
+  <video controls preload="metadata" class="w-full aspect-[16/10] object-cover bg-black">
+    <source src={video} type="video/mp4" />
+  </video>
+)}
+{gallery && gallery.length > 0 && (
+  <div class="project-carousel relative aspect-[16/10] overflow-hidden" data-interval="4500">
+    {gallery.map((src, i) => (
+      <img
+        src={src}
+        alt={`${title} - foto ${i + 1}`}
+        loading={i === 0 ? 'eager' : 'lazy'}
+        class="project-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+        style={{ opacity: i === 0 ? 1 : 0 }}
+      />
+    ))}
+    <button type="button" class="project-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-navy text-base leading-none shadow transition-colors" aria-label="Foto anterior">‹</button>
+    <button type="button" class="project-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-navy text-base leading-none shadow transition-colors" aria-label="Foto siguiente">›</button>
+    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+      {gallery.map((_, i) => (
+        <span class={`project-dot w-1.5 h-1.5 rounded-full transition-colors ${i === 0 ? 'bg-white' : 'bg-white/50'}`}></span>
+      ))}
+    </div>
+  </div>
+)}
+{image && !video && (!gallery || gallery.length === 0) && (
+  <img src={image} alt={title} class="w-full aspect-[16/10] object-cover" />
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('.project-carousel').forEach((carousel) => {
+    const slides = carousel.querySelectorAll<HTMLElement>('.project-slide');
+    const dots = carousel.querySelectorAll<HTMLElement>('.project-dot');
+    const prevBtn = carousel.querySelector('.project-prev');
+    const nextBtn = carousel.querySelector('.project-next');
+    const intervalMs = Number(carousel.dataset.interval) || 4500;
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      const total = slides.length;
+      current = (index + total) % total;
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === current ? '1' : '0';
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-white', i === current);
+        dot.classList.toggle('bg-white/50', i !== current);
+      });
+    }
+
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), intervalMs);
+    }
+
+    prevBtn?.addEventListener('click', () => { goTo(current - 1); restart(); });
+    nextBtn?.addEventListener('click', () => { goTo(current + 1); restart(); });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { goTo(i); restart(); });
+    });
+
+    restart();
+  });
+</script>

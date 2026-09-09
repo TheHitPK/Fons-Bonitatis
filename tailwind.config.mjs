@@ -21,7 +21,7 @@ export default {
 				},
 			},
 			fontFamily: {
-				heading: ['Georgia', 'Times New Roman', 'serif'],
+				heading: ['Lora', 'Georgia', 'Times New Roman', 'serif'],
 				body: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
 			},
 			maxWidth: {

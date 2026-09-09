@@ -24,10 +24,16 @@ const programs = [
   }
 ];
 
-const featuredSlugs = ['municipio-rural-430', 'comunidades-indigenas-632', 'jesus-eloy'];
-const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
+const featuredSlugs = [
+  'madre-rafols-acompano-a-la-red-de-amigos-con-diversidad-func',
+  'hospital-madre-rafols-brindo-asistencia-medica-gratuita-a-lo',
+  'proyecto-europana'
+];
+const stories = featuredSlugs
+  .map(slug => allStories.find(story => story.slug === slug))
+  .filter(Boolean);
 ---
-<BaseLayout title="Nuestro Trabajo" description="Conoce los programas y jornadas médicas de Fons Bonitatis Foundation en el Zulia.">
+<BaseLayout title="Nuestro Trabajo" description="Conoce los programas y jornadas médicas de Fons Bonitatis Foundation en el Zulia." ogImage="/images/general/IMG-20200803-WA0010.jpg">
   <PageHero
     image="/images/general/IMG-20200803-WA0010.jpg"
     alt="Equipo médico del Sistema de Salud Madre Rafols durante una cirugía"
@@ -58,7 +64,15 @@ const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
       <span class="section-label">Historias recientes</span>
       <h2>El impacto detrás de cada jornada</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        {stories.map(story => <StoryCard image={story.image} title={story.title} excerpt={story.excerpt} href={`/historias#${story.slug}`} />)}
+        {stories.map(story => (
+          <StoryCard
+            title={story.title}
+            excerpt={story.excerpt}
+            href={`/historias#${story.slug}`}
+            video={story.video}
+            gallery={story.gallery}
+          />
+        ))}
       </div>
     </div>
   </section>

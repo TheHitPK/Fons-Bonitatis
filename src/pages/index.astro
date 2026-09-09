@@ -7,8 +7,14 @@ import CtaBanner from '../components/CtaBanner.astro';
 import PartnersStrip from '../components/PartnersStrip.astro';
 import { stories as allStories } from '../data/stories.js';
 
-const featuredSlugs = ['jose-de-jesus', 'maracaibo-150', 'milagros-labio-paladar'];
-const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
+const featuredSlugs = [
+  'madre-rafols-atendio-430-pacientes-en-el-municipio-jesus-enr',
+  'madre-rafols-y-las-hermanas-de-la-caridad-de-santa-ana-brind',
+  'gracias-zulia-gracias-maracaibo'
+];
+const stories = featuredSlugs
+  .map(slug => allStories.find(story => story.slug === slug))
+  .filter(Boolean);
 ---
 <BaseLayout title="Inicio">
   <Hero />
@@ -20,7 +26,15 @@ const stories = allStories.filter(story => featuredSlugs.includes(story.slug));
       <span class="section-label">Historias de impacto</span>
       <h2>Cada historia es una vida transformada</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        {stories.map(story => <StoryCard image={story.image} title={story.title} excerpt={story.excerpt} href={`/historias#${story.slug}`} />)}
+        {stories.map(story => (
+          <StoryCard
+            title={story.title}
+            excerpt={story.excerpt}
+            href={`/historias#${story.slug}`}
+            video={story.video}
+            gallery={story.gallery}
+          />
+        ))}
       </div>
     </div>
   </section>

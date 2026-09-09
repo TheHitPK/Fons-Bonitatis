@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /login
+
+Sitemap: https://fonsbonitatis.org/sitemap-index.xml
