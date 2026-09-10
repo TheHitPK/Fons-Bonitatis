@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import 'aos/dist/aos.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -75,5 +76,16 @@ const orgSchema = {
       <slot />
     </main>
     <Footer />
+    <script>
+      import AOS from 'aos';
+
+      AOS.init({
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 60,
+        disable: () => window.innerWidth < 1024
+      });
+    </script>
   </body>
 </html>

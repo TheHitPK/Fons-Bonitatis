@@ -17,10 +17,10 @@ import { stories } from '../data/stories.js';
   {stories.map((story, i) => (
     <section id={story.slug} class={`section scroll-mt-24 ${i % 2 === 1 ? 'bg-surface border-y border-border' : ''}`}>
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div class={`rounded-brand overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+        <div class={`rounded-brand overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`} data-aos="fade" data-aos-duration="600">
           <ProjectMedia title={story.title} video={story.video} gallery={story.gallery} />
         </div>
-        <div class={i % 2 === 1 ? 'md:order-1' : ''}>
+        <div class={i % 2 === 1 ? 'md:order-1' : ''} data-aos="fade-up" data-aos-duration="600" data-aos-delay="120">
           <h2>{story.title}</h2>
           {story.body.map(paragraph => <p>{paragraph}</p>)}
         </div>

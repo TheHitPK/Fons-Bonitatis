@@ -8,8 +8,9 @@ interface Props {
   image?: string;
   video?: string;
   gallery?: string[];
+  linkText?: string;
 }
-const { title, excerpt, href, image, video, gallery } = Astro.props;
+const { title, excerpt, href, image, video, gallery, linkText = 'Leer historia →' } = Astro.props;
 ---
 <div class="bg-surface border border-border rounded-brand overflow-hidden transition-shadow duration-150 hover:shadow-[0_10px_24px_rgba(20,40,90,0.08)]">
   <ProjectMedia title={title} image={image} video={video} gallery={gallery} />
@@ -18,6 +19,6 @@ const { title, excerpt, href, image, video, gallery } = Astro.props;
       <h3 class="text-[1.05rem] mb-1.5 text-navy">{title}</h3>
     </a>
     <p class="text-sm mb-2.5">{excerpt}</p>
-    <a href={href} class="text-sm font-semibold text-accent">Leer historia →</a>
+    <a href={href} class="text-sm font-semibold text-accent">{linkText}</a>
   </div>
 </div>

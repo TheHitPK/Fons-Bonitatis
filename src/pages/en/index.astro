@@ -13,26 +13,37 @@ const stats = [
   { value: '+40', label: 'Medical outreach days' }
 ];
 
-const stories = [
-  {
-    image: '/images/general/IMG-20200803-WA0004.jpg',
-    title: 'José de Jesús regains his sight',
-    excerpt: 'A full, free surgery and recovery, made possible by our medical team and Social Work department.',
-    href: '/historias#jose-de-jesus'
-  },
-  {
-    image: '/images/general/IMG-20200803-WA0003.jpg',
-    title: 'Over 150 patients treated in Maracaibo',
-    excerpt: 'A medical outreach day at San Tarcisio Parish brought comprehensive care to those who need it most.',
-    href: '/historias#maracaibo-150'
-  },
-  {
-    image: '/images/general/IMG-20200803-WA0005.jpg',
-    title: "Milagros' cleft palate recovery",
-    excerpt: 'Another milestone made possible through our alliance with Fundación Cambiando Vidas.',
-    href: '/historias#milagros-labio-paladar'
-  }
+import { stories as allStories } from '../../data/stories.js';
+
+const storySlugs = [
+  'madre-rafols-atendio-430-pacientes-en-el-municipio-jesus-enr',
+  'madre-rafols-y-las-hermanas-de-la-caridad-de-santa-ana-brind',
+  'gracias-zulia-gracias-maracaibo'
 ];
+const storyTranslations = {
+  'madre-rafols-atendio-430-pacientes-en-el-municipio-jesus-enr': {
+    title: '430 patients treated in Jesús Enrique Lossada Municipality',
+    excerpt: 'Through our "Madre Rafols va a tu Parroquia" outreach program, we brought free healthcare to an entire rural community.'
+  },
+  'madre-rafols-y-las-hermanas-de-la-caridad-de-santa-ana-brind': {
+    title: '632 people treated in Los Ángeles del Tokuko',
+    excerpt: 'Alongside the Sisters of Charity of Santa Ana, we brought free medical care to the Yukpa and Barí indigenous communities.'
+  },
+  'gracias-zulia-gracias-maracaibo': {
+    title: 'Thank you, Zulia! Thank you, Maracaibo!',
+    excerpt: '20 tons of humanitarian aid collected and organized for families affected by the earthquake.'
+  }
+};
+const stories = storySlugs
+  .map(slug => allStories.find(s => s.slug === slug))
+  .filter(Boolean)
+  .map(story => ({
+    ...story,
+    title: storyTranslations[story.slug].title,
+    excerpt: storyTranslations[story.slug].excerpt,
+    href: `/historias#${story.slug}`,
+    linkText: 'Read story →'
+  }));
 ---
 <BaseLayout title="Home" description="Fons Bonitatis Foundation - Health, hope and dignity for those who need it most.">
   <Hero

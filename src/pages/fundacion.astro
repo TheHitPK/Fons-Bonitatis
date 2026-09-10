@@ -23,17 +23,17 @@ const values = [
 
   <section class="section bg-surface border-y border-border">
     <div class="container grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div>
+      <div data-aos="fade-up">
         <img src="/images/general-2/galeria/IMG-20220930-WA00244.jpg" alt="Rotonda del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
         <span class="section-label">Misión</span>
         <p class="mb-0">Proveer recursos humanos, económicos y tecnológicos a personas e instituciones que ofrecen soluciones en materia de salud, educación, investigación científica y las bellas artes.</p>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="120">
         <img src="/images/general-2/galeria/IMG-20220930-WA0007.jpg" alt="Cúpula del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
         <span class="section-label">Visión</span>
         <p class="mb-0">Ser una organización de referencia nacional e internacional en materia de ayuda social, educativa, científica y cultural, que permita el desarrollo integral de las personas más vulnerables y, por ende, de la sociedad venezolana.</p>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="240">
         <img src="/images/general/foto.png" alt="Capilla del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
         <span class="section-label">Valores</span>
         <p class="mb-0">Ética, sustentabilidad, cooperación, compromiso social, calidad humana y criterio científico guían cada decisión y cada alianza que hacemos.</p>
@@ -46,8 +46,8 @@ const values = [
       <span class="section-label">Nuestros valores</span>
       <h2>Los principios que guían cada proyecto</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-        {values.map(value => (
-          <div class="bg-surface border border-border rounded-brand p-6">
+        {values.map((value, i) => (
+          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
             <h3 class="text-lg mb-2">{value.title}</h3>
             <p class="text-sm mb-0">{value.text}</p>
           </div>

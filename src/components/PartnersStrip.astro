@@ -17,12 +17,14 @@ const partners = [
   <div class="container">
     <p class="text-center text-xs uppercase tracking-wider font-bold text-body-muted mb-6">{label}</p>
     <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-      {partners.map(partner => (
+      {partners.map((partner, i) => (
         <img
           src={partner.logo}
           alt={partner.name}
           title={partner.name}
           class="h-32 w-auto max-w-[140px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+          data-aos="zoom-in"
+          data-aos-delay={i * 80}
         />
       ))}
     </div>

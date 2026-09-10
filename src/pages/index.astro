@@ -26,14 +26,16 @@ const stories = featuredSlugs
       <span class="section-label">Historias de impacto</span>
       <h2>Cada historia es una vida transformada</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        {stories.map(story => (
-          <StoryCard
-            title={story.title}
-            excerpt={story.excerpt}
-            href={`/historias#${story.slug}`}
-            video={story.video}
-            gallery={story.gallery}
-          />
+        {stories.map((story, i) => (
+          <div data-aos="fade-up" data-aos-delay={i * 100}>
+            <StoryCard
+              title={story.title}
+              excerpt={story.excerpt}
+              href={`/historias#${story.slug}`}
+              video={story.video}
+              gallery={story.gallery}
+            />
+          </div>
         ))}
       </div>
     </div>
