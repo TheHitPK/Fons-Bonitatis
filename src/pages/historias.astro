@@ -4,34 +4,242 @@ import PageHero from '../components/PageHero.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import ProjectMedia from '../components/ProjectMedia.astro';
 import { stories } from '../data/stories.js';
+
+const years = [...new Set(stories.map(s => s.year).filter(Boolean))].sort((a, b) => b - a);
+const hasUndated = stories.some(s => !s.year);
+const filters = ['todas', ...years.map(String), ...(hasUndated ? ['otras'] : [])];
+const filterLabels = { todas: 'Todas', otras: 'Otras' };
 ---
-<BaseLayout title="Historias de impacto" description="Historias reales de pacientes y comunidades atendidas por Fons Bonitatis Foundation." ogImage="/images/general/IMG-20200803-WA0009.jpg">
+<BaseLayout title="Historias de impacto" description="Historias reales de pacientes y comunidades atendidas por Fons Bonitatis Foundation en Maracaibo y el estado Zulia, Venezuela." ogImage="/images/general/IMG-20200803-WA0009.jpg">
   <PageHero
-    image="/images/general/IMG-20200803-WA0009.jpg"
+    image="/images/general/IMG-20200803-WA0009.webp"
     alt="Familia junto al equipo médico del Sistema de Salud Madre Rafols"
     label="Historias de impacto"
     title="Cada historia es una vida transformada"
     lead="Detrás de cada cirugía, cada jornada médica y cada alianza hay una familia que recupera salud y dignidad. Estas son algunas de sus historias."
   />
 
-  {stories.map((story, i) => (
-    <section id={story.slug} class={`section scroll-mt-24 ${i % 2 === 1 ? 'bg-surface border-y border-border' : ''}`}>
-      <div class="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div class={`rounded-brand overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`} data-aos="fade" data-aos-duration="600">
-          <ProjectMedia title={story.title} video={story.video} gallery={story.gallery} />
-        </div>
-        <div class={i % 2 === 1 ? 'md:order-1' : ''} data-aos="fade-up" data-aos-duration="600" data-aos-delay="120">
-          <h2>{story.title}</h2>
-          {story.body.map(paragraph => <p>{paragraph}</p>)}
-        </div>
-      </div>
-    </section>
-  ))}
+  <div class="container pt-10">
+    <div id="year-filters" class="flex flex-wrap gap-2">
+      {filters.map(f => (
+        <button
+          type="button"
+          data-filter={f}
+          class={`year-filter-btn text-xs font-semibold rounded-full px-4 py-2 border transition-colors ${f === 'todas' ? 'bg-navy text-white border-navy' : 'bg-white text-navy border-border hover:border-navy'}`}
+        >{filterLabels[f] || f}</button>
+      ))}
+    </div>
+  </div>
+
+  <div id="stories-list">
+    {stories.map((story, i) => {
+      const isFeatured = (i + 1) % 7 === 0;
+      return isFeatured ? (
+        <section
+          id={story.slug}
+          class="story-item scroll-mt-24"
+          data-year={story.year || 'otras'}
+        >
+          {/* Padding lives here, not on .story-item: max-height can't shrink
+              a box below its own padding, so the clip target above must stay
+              padding-free for the reveal to start from a true 0px. */}
+          <div class="section bg-navy text-white">
+            <div class="container max-w-[760px] mx-auto text-center">
+              <div class="rounded-brand overflow-hidden mb-8" data-aos="fade" data-aos-duration="600">
+                <ProjectMedia title={story.title} video={story.video} gallery={story.gallery} />
+              </div>
+              <h2 class="text-white" data-aos="fade-up" data-aos-duration="600" data-aos-delay="120">{story.title}</h2>
+              {story.body.map(paragraph => <p class="text-white/85" data-aos="fade-up" data-aos-duration="600" data-aos-delay="120">{paragraph}</p>)}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section
+          id={story.slug}
+          class="story-item scroll-mt-24"
+          data-year={story.year || 'otras'}
+        >
+          <div class={`section ${i % 2 === 1 ? 'bg-surface border-y border-border' : ''}`}>
+            <div class="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <div class={`rounded-brand overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`} data-aos="fade" data-aos-duration="600">
+                <ProjectMedia title={story.title} video={story.video} gallery={story.gallery} />
+              </div>
+              <div class={i % 2 === 1 ? 'md:order-1' : ''} data-aos="fade-up" data-aos-duration="600" data-aos-delay="120">
+                <h2>{story.title}</h2>
+                {story.body.map(paragraph => <p>{paragraph}</p>)}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <div class="container flex flex-col items-center gap-2 py-4">
+    <button
+      type="button"
+      id="load-more-stories"
+      class="btn btn-secondary"
+    >Cargar más historias</button>
+    <p id="stories-count" class="text-xs text-body-muted mb-0"></p>
+  </div>
 
   <CtaBanner
     title="Tu donación escribe la próxima historia"
     text="Cada aporte se convierte en una cirugía, un tratamiento o una jornada médica para quienes más lo necesitan."
     buttonText="Quiero donar"
-    buttonHref="/donar"
+    buttonHref="/contactos"
   />
 </BaseLayout>
+
+<script>
+  import AOS from 'aos';
+
+  // Grows each newly-revealed section from 0 to its natural height while the
+  // page scrolls, in lockstep (same eased progress drives both), so it reads
+  // as a single curtain sliding down rather than a scroll animation over
+  // content that already snapped to full height.
+  function animateCurtain(newItems: HTMLElement[], heights: number[], targetY: number, duration = 1000) {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    let startTime: number | null = null;
+
+    function step(timestamp: number) {
+      if (startTime === null) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      newItems.forEach((item, i) => {
+        item.style.maxHeight = `${heights[i] * eased}px`;
+      });
+      // 'instant' is required here, not 'auto': per spec, behavior:'auto' just
+      // defers to the CSS scroll-behavior property (smooth, site-wide), so it
+      // does NOT bypass it - every one of these per-frame calls would instead
+      // kick off its own native smooth-scroll and lag behind this loop's
+      // intended curve, only catching up in one visible jump once the loop
+      // stops calling scrollTo. 'instant' is the only value that truly jumps.
+      window.scrollTo({ top: startY + diff * eased, behavior: 'instant' });
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        newItems.forEach((item) => {
+          item.style.maxHeight = '';
+          item.style.overflow = '';
+        });
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  const PAGE_SIZE = 6;
+  const list = document.getElementById('stories-list');
+  const loadMoreBtn = document.getElementById('load-more-stories');
+  const countLabel = document.getElementById('stories-count');
+  const filterBtns = document.querySelectorAll<HTMLElement>('.year-filter-btn');
+
+  if (list && loadMoreBtn && countLabel && !list.dataset.bound) {
+    list.dataset.bound = 'true';
+
+    const items = Array.from(list.querySelectorAll<HTMLElement>('.story-item'));
+    const hashId = window.location.hash ? window.location.hash.slice(1) : null;
+
+    let currentFilter = 'todas';
+    let shownCount = PAGE_SIZE;
+
+    function matchesFilter(item: HTMLElement) {
+      return currentFilter === 'todas' || item.dataset.year === currentFilter;
+    }
+
+    function render() {
+      const matching = items.filter(matchesFilter);
+      let visibleSoFar = 0;
+
+      items.forEach((item) => {
+        const isMatch = matchesFilter(item);
+        const isPinned = item.id === hashId;
+        let show = false;
+        if (isMatch) {
+          if (visibleSoFar < shownCount) {
+            show = true;
+            visibleSoFar++;
+          }
+        }
+        if (isPinned) show = true;
+        item.classList.toggle('hidden', !show);
+      });
+
+      const remaining = matching.length - Math.min(shownCount, matching.length);
+      loadMoreBtn!.classList.toggle('hidden', remaining <= 0);
+      const shown = Math.min(shownCount, matching.length);
+      countLabel!.textContent = `Mostrando ${shown} de ${matching.length} historias`;
+
+      // Newly-revealed items were previously display:none, so AOS never had a
+      // valid position for them and their fade-up/fade never fires. Re-scan
+      // and recalculate offsets now that they're actually laid out.
+      requestAnimationFrame(() => AOS.refresh());
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentFilter = btn.dataset.filter || 'todas';
+        shownCount = PAGE_SIZE;
+        filterBtns.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle('bg-navy', active);
+          b.classList.toggle('text-white', active);
+          b.classList.toggle('border-navy', active);
+          b.classList.toggle('bg-white', !active);
+          b.classList.toggle('text-navy', !active);
+          b.classList.toggle('border-border', !active);
+        });
+        render();
+      });
+    });
+
+    loadMoreBtn.addEventListener('click', () => {
+      // The batch about to be revealed - each one will grow from 0 to its
+      // natural height as the curtain plays.
+      const newItems = items.filter((item) => matchesFilter(item) && item.classList.contains('hidden')).slice(0, PAGE_SIZE);
+
+      shownCount += PAGE_SIZE;
+      render();
+
+      // scrollHeight reports an element's full content height regardless of
+      // max-height/overflow clipping, so measure it, then clip immediately -
+      // both synchronous and in the same tick as render()'s class change, so
+      // the browser never paints the un-clipped, full-height state.
+      const heights = newItems.map((item) => item.scrollHeight);
+      newItems.forEach((item) => {
+        item.style.overflow = 'hidden';
+        item.style.maxHeight = '0px';
+      });
+
+      const firstNewItem = newItems[0];
+      if (firstNewItem) {
+        // Double rAF: the first frame is when the browser actually applies the
+        // class change from render() and lays the new (large) sections out;
+        // only the frame after that gives a correct getBoundingClientRect().
+        // Measuring one frame too early reads a stale/short position and the
+        // scroll visibly "corrects" itself partway through.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const headerOffset = 96;
+            const targetY = firstNewItem.getBoundingClientRect().top + window.scrollY - headerOffset;
+            animateCurtain(newItems, heights, targetY, 1000);
+          });
+        });
+      }
+    });
+
+    render();
+
+    if (hashId && document.getElementById(hashId)) {
+      requestAnimationFrame(() => {
+        document.getElementById(hashId)?.scrollIntoView();
+      });
+    }
+  }
+</script>

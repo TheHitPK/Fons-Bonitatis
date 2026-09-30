@@ -9,7 +9,8 @@ export const stories = [
       "En el Sistema de Salud Madre Rafols creemos que servir es transformar vidas. Hoy celebramos que José de Jesús regresa a su hogar con una evolución favorable y con la ilusión de volver a disfrutar del béisbol.",
       "Seguimos llevando salud, esperanza y solidaridad a quienes más lo necesitan."
     ],
-    "video": "/images/general-2/video/beisbolista.mp4"
+    "video": "/images/general-2/video/beisbolista.mp4",
+    "year": null
   },
   {
     "slug": "mas-de-150-pacientes-atendidos-en-una-nueva-jornada",
@@ -20,7 +21,8 @@ export const stories = [
       "Emergenciólogos, internistas, traumatólogos, pediatras, psicólogos y demás profesionales de la salud brindaron una atención humanizada, reafirmando que servir al prójimo es nuestra mayor vocación.",
       "Juntos seguimos construyendo una salud con rostro humano."
     ],
-    "video": "/images/general-2/video/atencion.mp4"
+    "video": "/images/general-2/video/atencion.mp4",
+    "year": null
   },
   {
     "slug": "gracias-zulia-gracias-maracaibo",
@@ -34,17 +36,18 @@ export const stories = [
       "¡La solidaridad es la ternura de los pueblos!"
     ],
     "gallery": [
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.33 PM.jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (1).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (2).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (3).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM.jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (1).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (2).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (3).jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM.jpeg",
-      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.33 PM (2).jpeg"
-    ]
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.33 PM.webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (1).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (2).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM (3).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.34 PM.webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (1).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (2).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM (3).webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.35 PM.webp",
+      "/images/general-2/2026/donacion/WhatsApp Image 2026-07-01 at 6.31.33 PM (2).webp"
+    ],
+    "year": 2026
   },
   {
     "slug": "el-sistema-de-salud-madre-rafols-y-el-instituto-ninos-cantor",
@@ -55,7 +58,8 @@ export const stories = [
       "Invita a toda tu comunidad de vecinos y amigos a donar un kilo de amor con insumos médicos, medicamentos, alimentos no perecederos, enlatados, artículos de higiene personal, ropa en buen estado, zapatos, colchones, cobijas, entre otros. Cada detalle por pequeño que sea cuenta!",
       "“No siempre podemos hacer grandes cosas, pero si podemos hacer cosas pequeñas con gran amor\" Madre Teresa de Calcuta."
     ],
-    "video": "/images/general-2/2026/donacion/document_5057860445340174103.mp4"
+    "video": "/images/general-2/2026/donacion/document_5057860445340174103.mp4",
+    "year": 2026
   },
   {
     "slug": "es-momento-de-dar-una-mano-solidaria",
@@ -65,7 +69,8 @@ export const stories = [
       "Informamos a nuestra comunidad de usuarios que nos unimos en una gran jornada como voluntarios a partir de este viernes 26/06 debido a los acontecimientos sísmicos ocurridos en el país con el propósito de ser centro de acopio para los más necesitados de la tragedia.",
       "Es momento de dar una mano solidaria\n1. Invita a toda tu comunidad de vecinos y amigos a donar un kilo de amor, insumos médicos, medicamentos, insumos de Higiene Personal, Ropa en buen estado, calzado, agua, enlatados, entre otros.\n2. Puedes colaborar acá en el hospital para embalar cajas, moverlas, identificarlas y organizar.\n\"No siempre podemos hacer grandes cosas, pero si podemos hacer cosas pequeñas con gran amor.\" Madre Teresa de Calcuta."
     ],
-    "video": "/images/general-2/2026/donacion/document_5057860445340174101.mp4"
+    "video": "/images/general-2/2026/donacion/document_5057860445340174101.mp4",
+    "year": 2026
   },
   {
     "slug": "madre-rafols-atendio-en-jornada-medica-gratuita-a-150-adulto",
@@ -80,18 +85,19 @@ export const stories = [
     ],
     "video": "/images/general-2/video/video4920741376737412941.mp4",
     "gallery": [
-      "/images/general-2/2025/IMG-20251104-WA0011.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0012.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0010.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0013.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0014.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0018.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0023.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0021.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0024.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0016.jpg",
-      "/images/general-2/2025/IMG-20251104-WA0025.jpg"
-    ]
+      "/images/general-2/2025/IMG-20251104-WA0011.webp",
+      "/images/general-2/2025/IMG-20251104-WA0012.webp",
+      "/images/general-2/2025/IMG-20251104-WA0010.webp",
+      "/images/general-2/2025/IMG-20251104-WA0013.webp",
+      "/images/general-2/2025/IMG-20251104-WA0014.webp",
+      "/images/general-2/2025/IMG-20251104-WA0018.webp",
+      "/images/general-2/2025/IMG-20251104-WA0023.webp",
+      "/images/general-2/2025/IMG-20251104-WA0021.webp",
+      "/images/general-2/2025/IMG-20251104-WA0024.webp",
+      "/images/general-2/2025/IMG-20251104-WA0016.webp",
+      "/images/general-2/2025/IMG-20251104-WA0025.webp"
+    ],
+    "year": 2025
   },
   {
     "slug": "madre-rafols-atendio-430-pacientes-en-el-municipio-jesus-enr",
@@ -105,21 +111,22 @@ export const stories = [
       "Más de 25 profesionales de la salud formaron parte del equipo multidisciplinario del Sistema de Salud Madre Rafols que se trasladó hasta La Concepción."
     ],
     "gallery": [
-      "/images/general-2/2025/IMG-20250930-WA0017.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0013.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0002.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0006.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0003.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0007.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0009.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0004.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0018.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0010.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0016.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0005.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0012.jpg",
-      "/images/general-2/2025/IMG-20250930-WA0001 (1).jpg"
-    ]
+      "/images/general-2/2025/IMG-20250930-WA0017.webp",
+      "/images/general-2/2025/IMG-20250930-WA0013.webp",
+      "/images/general-2/2025/IMG-20250930-WA0002.webp",
+      "/images/general-2/2025/IMG-20250930-WA0006.webp",
+      "/images/general-2/2025/IMG-20250930-WA0003.webp",
+      "/images/general-2/2025/IMG-20250930-WA0007.webp",
+      "/images/general-2/2025/IMG-20250930-WA0009.webp",
+      "/images/general-2/2025/IMG-20250930-WA0004.webp",
+      "/images/general-2/2025/IMG-20250930-WA0018.webp",
+      "/images/general-2/2025/IMG-20250930-WA0010.webp",
+      "/images/general-2/2025/IMG-20250930-WA0016.webp",
+      "/images/general-2/2025/IMG-20250930-WA0005.webp",
+      "/images/general-2/2025/IMG-20250930-WA0012.webp",
+      "/images/general-2/2025/IMG-20250930-WA0001 (1).webp"
+    ],
+    "year": 2025
   },
   {
     "slug": "madre-rafols-y-las-hermanas-de-la-caridad-de-santa-ana-brind",
@@ -132,18 +139,19 @@ export const stories = [
       "No fue hasta el año 1951 que se construyeron los edificios de la misión y luego, con la llegada de las Hermanas de la Caridad de Santa Ana, se comenzó una labor educativa que se mantiene hasta hoy en día."
     ],
     "gallery": [
-      "/images/general-2/2025/IMG-20250804-WA0050.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0049.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0044.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0048.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0051.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0045.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0046.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0047.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0043.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0040.jpg",
-      "/images/general-2/2025/IMG-20250804-WA0032.jpg"
-    ]
+      "/images/general-2/2025/IMG-20250804-WA0050.webp",
+      "/images/general-2/2025/IMG-20250804-WA0049.webp",
+      "/images/general-2/2025/IMG-20250804-WA0044.webp",
+      "/images/general-2/2025/IMG-20250804-WA0048.webp",
+      "/images/general-2/2025/IMG-20250804-WA0051.webp",
+      "/images/general-2/2025/IMG-20250804-WA0045.webp",
+      "/images/general-2/2025/IMG-20250804-WA0046.webp",
+      "/images/general-2/2025/IMG-20250804-WA0047.webp",
+      "/images/general-2/2025/IMG-20250804-WA0043.webp",
+      "/images/general-2/2025/IMG-20250804-WA0040.webp",
+      "/images/general-2/2025/IMG-20250804-WA0032.webp"
+    ],
+    "year": 2025
   },
   {
     "slug": "tratamiento-oncologico",
@@ -154,7 +162,8 @@ export const stories = [
       "Los servicios de infusión incluyen quimioterapia, inmunoterapia, transfusiones de sangre, terapia hormonal y otros tratamientos de infusión que pueda necesitar durante su lucha contra el cáncer, como líquidos de hidratación, antibióticos y analgésicos.",
       "En el Sistema de Salud Madre Rafols, contamos con los mejores especialistas para atender el área de oncología clínica en adultos y pediatría."
     ],
-    "video": "/images/general-2/video/Oncologia V6 (1).mp4"
+    "video": "/images/general-2/video/Oncologia V6 (1).mp4",
+    "year": null
   },
   {
     "slug": "madre-rafols-va-a-tu-parroquia-atendio-gratuitamente-a-mas-d",
@@ -169,18 +178,19 @@ export const stories = [
     ],
     "video": "/images/general-2/video/VID-20250610-WA0004.mp4",
     "gallery": [
-      "/images/general-2/2025/IMG-20250610-WA0012.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0007.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0013.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0006.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0008.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0009.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0014.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0017.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0005.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0011.jpg",
-      "/images/general-2/2025/IMG-20250610-WA0019.jpg"
-    ]
+      "/images/general-2/2025/IMG-20250610-WA0012.webp",
+      "/images/general-2/2025/IMG-20250610-WA0007.webp",
+      "/images/general-2/2025/IMG-20250610-WA0013.webp",
+      "/images/general-2/2025/IMG-20250610-WA0006.webp",
+      "/images/general-2/2025/IMG-20250610-WA0008.webp",
+      "/images/general-2/2025/IMG-20250610-WA0009.webp",
+      "/images/general-2/2025/IMG-20250610-WA0014.webp",
+      "/images/general-2/2025/IMG-20250610-WA0017.webp",
+      "/images/general-2/2025/IMG-20250610-WA0005.webp",
+      "/images/general-2/2025/IMG-20250610-WA0011.webp",
+      "/images/general-2/2025/IMG-20250610-WA0019.webp"
+    ],
+    "year": null
   },
   {
     "slug": "madre-rafols-acompano-a-la-red-de-amigos-con-diversidad-func",
@@ -193,18 +203,19 @@ export const stories = [
       "Sistema de Salud Madre Rafols, ser Solidario Valor Humano."
     ],
     "gallery": [
-      "/images/general-2/2025/IMG-20250506-WA0033.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0031.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0041.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0037.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0038.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0039.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0040.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0036.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0035.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0032.jpg",
-      "/images/general-2/2025/IMG-20250506-WA0034.jpg"
-    ]
+      "/images/general-2/2025/IMG-20250506-WA0033.webp",
+      "/images/general-2/2025/IMG-20250506-WA0031.webp",
+      "/images/general-2/2025/IMG-20250506-WA0041.webp",
+      "/images/general-2/2025/IMG-20250506-WA0037.webp",
+      "/images/general-2/2025/IMG-20250506-WA0038.webp",
+      "/images/general-2/2025/IMG-20250506-WA0039.webp",
+      "/images/general-2/2025/IMG-20250506-WA0040.webp",
+      "/images/general-2/2025/IMG-20250506-WA0036.webp",
+      "/images/general-2/2025/IMG-20250506-WA0035.webp",
+      "/images/general-2/2025/IMG-20250506-WA0032.webp",
+      "/images/general-2/2025/IMG-20250506-WA0034.webp"
+    ],
+    "year": 2025
   },
   {
     "slug": "madre-rafols-visita-la-parroquia-el-buen-pastor-ubicada-en-e",
@@ -217,13 +228,14 @@ export const stories = [
       "Mil gracias también para nuestros aliados quienes continuan sumándose a esta iniciativa y buenas acciones que se traducen en bienestar para la gente."
     ],
     "gallery": [
-      "/images/general-2/2025/IMG-20250402-WA0043.jpg",
-      "/images/general-2/2025/IMG-20250402-WA0044.jpg",
-      "/images/general-2/2025/IMG-20250402-WA0042.jpg",
-      "/images/general-2/2025/IMG-20250402-WA0041.jpg",
-      "/images/general-2/2025/IMG-20250402-WA0040.jpg",
-      "/images/general-2/2025/IMG-20250402-WA0039.jpg"
-    ]
+      "/images/general-2/2025/IMG-20250402-WA0043.webp",
+      "/images/general-2/2025/IMG-20250402-WA0044.webp",
+      "/images/general-2/2025/IMG-20250402-WA0042.webp",
+      "/images/general-2/2025/IMG-20250402-WA0041.webp",
+      "/images/general-2/2025/IMG-20250402-WA0040.webp",
+      "/images/general-2/2025/IMG-20250402-WA0039.webp"
+    ],
+    "year": 2025
   },
   {
     "slug": "instituto-arquidiocesano-ninos-cantores-del-zulia-recibio-la",
@@ -235,12 +247,13 @@ export const stories = [
       "El Director General Pbro. Dr. Richard Colmenares, también Sacerdote Egresado del Instituto, expresó sus palabras de gratitud al Sr. Nuncio Apostólico y destacó la importancia que para la Institución representa su presencia y bendición, como mensajero de la Paz."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20241121-WA0014.jpg",
-      "/images/general-2/2024/IMG-20241121-WA0015.jpg",
-      "/images/general-2/2024/IMG-20241121-WA0013.jpg",
-      "/images/general-2/2024/IMG-20241121-WA0011.jpg",
-      "/images/general-2/2024/IMG-20241121-WA0012.jpg"
-    ]
+      "/images/general-2/2024/IMG-20241121-WA0014.webp",
+      "/images/general-2/2024/IMG-20241121-WA0015.webp",
+      "/images/general-2/2024/IMG-20241121-WA0013.webp",
+      "/images/general-2/2024/IMG-20241121-WA0011.webp",
+      "/images/general-2/2024/IMG-20241121-WA0012.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "jornada-quirurgica-gratuita",
@@ -252,7 +265,8 @@ export const stories = [
       "Todos podemos aportar para mejorar la vida de un adulto mayor, de una niña o niño, de un adolescente, acércate a la institución donde canalizaremos esa ayuda tan necesaria que desees realizar al hermano que sufre.",
       "Ser Solidario valor humano."
     ],
-    "video": "/images/general-2/video/VID-20241021-WA0003.mp4"
+    "video": "/images/general-2/video/VID-20241021-WA0003.mp4",
+    "year": null
   },
   {
     "slug": "madre-rafols-visito-la-parroquia-san-felipe-neri-del-municip",
@@ -264,15 +278,16 @@ export const stories = [
       "Sistema de Salud Madre Rafols ser solidario valor humano."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20241014-WA0010.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0012.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0015.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0014.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0009.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0013.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0011.jpg",
-      "/images/general-2/2024/IMG-20241014-WA0016.jpg"
-    ]
+      "/images/general-2/2024/IMG-20241014-WA0010.webp",
+      "/images/general-2/2024/IMG-20241014-WA0012.webp",
+      "/images/general-2/2024/IMG-20241014-WA0015.webp",
+      "/images/general-2/2024/IMG-20241014-WA0014.webp",
+      "/images/general-2/2024/IMG-20241014-WA0009.webp",
+      "/images/general-2/2024/IMG-20241014-WA0013.webp",
+      "/images/general-2/2024/IMG-20241014-WA0011.webp",
+      "/images/general-2/2024/IMG-20241014-WA0016.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "madre-rafols-va-a-tu-parroquia-brindo-asistencia-en-salud-a-",
@@ -285,16 +300,17 @@ export const stories = [
       "Así mismo, la comunidad pudo recibir donación de medicamentos, colocación de tratamiento, toma de citologías, y alimentacion."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240930-WA0050.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0045.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0043.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0048.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0046.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0047.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0049.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0044.jpg",
-      "/images/general-2/2024/IMG-20240930-WA0042.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240930-WA0050.webp",
+      "/images/general-2/2024/IMG-20240930-WA0045.webp",
+      "/images/general-2/2024/IMG-20240930-WA0043.webp",
+      "/images/general-2/2024/IMG-20240930-WA0048.webp",
+      "/images/general-2/2024/IMG-20240930-WA0046.webp",
+      "/images/general-2/2024/IMG-20240930-WA0047.webp",
+      "/images/general-2/2024/IMG-20240930-WA0049.webp",
+      "/images/general-2/2024/IMG-20240930-WA0044.webp",
+      "/images/general-2/2024/IMG-20240930-WA0042.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "el-sistema-de-salud-madre-rafols-acompano-en-una-jornada-med",
@@ -307,17 +323,18 @@ export const stories = [
       "Estamos gozoso de poder servir al prójimo con lo que mejor sabemos hacer que es brindar ayuda y atención humanizada en materia de salud a nuestra amada comunidad zuliana."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240826-WA0004.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0005.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0013.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0006.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0010.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0009.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0011.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0008.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0007.jpg",
-      "/images/general-2/2024/IMG-20240826-WA0012.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240826-WA0004.webp",
+      "/images/general-2/2024/IMG-20240826-WA0005.webp",
+      "/images/general-2/2024/IMG-20240826-WA0013.webp",
+      "/images/general-2/2024/IMG-20240826-WA0006.webp",
+      "/images/general-2/2024/IMG-20240826-WA0010.webp",
+      "/images/general-2/2024/IMG-20240826-WA0009.webp",
+      "/images/general-2/2024/IMG-20240826-WA0011.webp",
+      "/images/general-2/2024/IMG-20240826-WA0008.webp",
+      "/images/general-2/2024/IMG-20240826-WA0007.webp",
+      "/images/general-2/2024/IMG-20240826-WA0012.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "madre-rafols-atendio-a-los-feligreses-de-la-parroquia-nuestr",
@@ -330,17 +347,18 @@ export const stories = [
       "Sistema de Salud Madre Rafols, ser solidario valor humano."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240625-WA0001.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0009.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0007.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0003.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0002.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0006.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0004.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0005.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0010.jpg",
-      "/images/general-2/2024/IMG-20240625-WA0008.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240625-WA0001.webp",
+      "/images/general-2/2024/IMG-20240625-WA0009.webp",
+      "/images/general-2/2024/IMG-20240625-WA0007.webp",
+      "/images/general-2/2024/IMG-20240625-WA0003.webp",
+      "/images/general-2/2024/IMG-20240625-WA0002.webp",
+      "/images/general-2/2024/IMG-20240625-WA0006.webp",
+      "/images/general-2/2024/IMG-20240625-WA0004.webp",
+      "/images/general-2/2024/IMG-20240625-WA0005.webp",
+      "/images/general-2/2024/IMG-20240625-WA0010.webp",
+      "/images/general-2/2024/IMG-20240625-WA0008.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "madre-rafols-presente-en-el-primer-encuentro-de-escuelas-arq",
@@ -354,17 +372,18 @@ export const stories = [
       "Sistema de Salud Madre Rafols, ser solidario valor humano"
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240412-WA0016.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0015.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0013.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0014.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0017.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0018.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0019.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0020.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0021.jpg",
-      "/images/general-2/2024/IMG-20240412-WA0022.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240412-WA0016.webp",
+      "/images/general-2/2024/IMG-20240412-WA0015.webp",
+      "/images/general-2/2024/IMG-20240412-WA0013.webp",
+      "/images/general-2/2024/IMG-20240412-WA0014.webp",
+      "/images/general-2/2024/IMG-20240412-WA0017.webp",
+      "/images/general-2/2024/IMG-20240412-WA0018.webp",
+      "/images/general-2/2024/IMG-20240412-WA0019.webp",
+      "/images/general-2/2024/IMG-20240412-WA0020.webp",
+      "/images/general-2/2024/IMG-20240412-WA0021.webp",
+      "/images/general-2/2024/IMG-20240412-WA0022.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "en-el-sistema-de-salud-madre-rafols-seguimos-contribuyendo-c",
@@ -376,17 +395,18 @@ export const stories = [
       "La práctica profesional 1 en medicina, es una oportunidad para que los estudiantes se familiaricen con las tareas diarias del quehacer médico, se enfrenten a situaciones reales y complejas, y aprendan de la experiencia y el modelaje de sus tutores."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240228-WA0099.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0095.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0105.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0093.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0101.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0089.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0097.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0103.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0091.jpg",
-      "/images/general-2/2024/IMG-20240228-WA0087.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240228-WA0099.webp",
+      "/images/general-2/2024/IMG-20240228-WA0095.webp",
+      "/images/general-2/2024/IMG-20240228-WA0105.webp",
+      "/images/general-2/2024/IMG-20240228-WA0093.webp",
+      "/images/general-2/2024/IMG-20240228-WA0101.webp",
+      "/images/general-2/2024/IMG-20240228-WA0089.webp",
+      "/images/general-2/2024/IMG-20240228-WA0097.webp",
+      "/images/general-2/2024/IMG-20240228-WA0103.webp",
+      "/images/general-2/2024/IMG-20240228-WA0091.webp",
+      "/images/general-2/2024/IMG-20240228-WA0087.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "hospital-madre-rafols-brindo-asistencia-medica-gratuita-a-lo",
@@ -400,13 +420,14 @@ export const stories = [
       "Sistema de Salud Madre Rafols, ser solidario, valor humano."
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240207-WA0034.jpg",
-      "/images/general-2/2024/IMG-20240207-WA0030.jpg",
-      "/images/general-2/2024/IMG-20240207-WA0031.jpg",
-      "/images/general-2/2024/IMG-20240207-WA0041.jpg",
-      "/images/general-2/2024/IMG-20240207-WA0035.jpg",
-      "/images/general-2/2024/IMG-20240207-WA0032.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240207-WA0034.webp",
+      "/images/general-2/2024/IMG-20240207-WA0030.webp",
+      "/images/general-2/2024/IMG-20240207-WA0031.webp",
+      "/images/general-2/2024/IMG-20240207-WA0041.webp",
+      "/images/general-2/2024/IMG-20240207-WA0035.webp",
+      "/images/general-2/2024/IMG-20240207-WA0032.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "madre-rafols-visito-la-parroquia-san-pablo-apostol-de-la-urb",
@@ -420,15 +441,16 @@ export const stories = [
       "¡Ser solidario, valor humano!"
     ],
     "gallery": [
-      "/images/general-2/2024/IMG-20240127-WA0055.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0057.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0052.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0056.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0051.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0053.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0054.jpg",
-      "/images/general-2/2024/IMG-20240127-WA0050.jpg"
-    ]
+      "/images/general-2/2024/IMG-20240127-WA0055.webp",
+      "/images/general-2/2024/IMG-20240127-WA0057.webp",
+      "/images/general-2/2024/IMG-20240127-WA0052.webp",
+      "/images/general-2/2024/IMG-20240127-WA0056.webp",
+      "/images/general-2/2024/IMG-20240127-WA0051.webp",
+      "/images/general-2/2024/IMG-20240127-WA0053.webp",
+      "/images/general-2/2024/IMG-20240127-WA0054.webp",
+      "/images/general-2/2024/IMG-20240127-WA0050.webp"
+    ],
+    "year": 2024
   },
   {
     "slug": "videoconferencia-de-trabajo-con-la-directora-de-salud-y-el-d",
@@ -440,14 +462,15 @@ export const stories = [
       "El Bambino Gesú, es una institución de la Santa Sede y es el más grande centro clínico pediátrico y de investigación de Europa, punto de referencia para la salud de niños y jóvenes de toda Italia y del extranjero."
     ],
     "gallery": [
-      "/images/general-2/2023/5051feabaa5d4368bc3d84e617fd12c6.jpg",
-      "/images/general-2/2023/IMG-20231130-WA0015.jpg",
-      "/images/general-2/2023/IMG-20231130-WA0013.jpg",
-      "/images/general-2/2023/03e566de087049d9ab39b7a5d22c7cfe.jpg",
-      "/images/general-2/2023/526a84462d0649be96e03447cee642a5.jpg",
-      "/images/general-2/2023/IMG-20231130-WA0013.jpg",
-      "/images/general-2/2023/IMG-20231130-WA0016.jpg"
-    ]
+      "/images/general-2/2023/5051feabaa5d4368bc3d84e617fd12c6.webp",
+      "/images/general-2/2023/IMG-20231130-WA0015.webp",
+      "/images/general-2/2023/IMG-20231130-WA0013.webp",
+      "/images/general-2/2023/03e566de087049d9ab39b7a5d22c7cfe.webp",
+      "/images/general-2/2023/526a84462d0649be96e03447cee642a5.webp",
+      "/images/general-2/2023/IMG-20231130-WA0013.webp",
+      "/images/general-2/2023/IMG-20231130-WA0016.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "madre-rafols-brinda-asistencia-de-salud-a-la-parroquia-san-j",
@@ -460,19 +483,20 @@ export const stories = [
       "¡Ser solidario, valor humano!"
     ],
     "gallery": [
-      "/images/general-2/2023/IMG-20231105-WA0009.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0013.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0014.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0010.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0007.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0008.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0011.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0016.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0015.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0006.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0012.jpg",
-      "/images/general-2/2023/IMG-20231105-WA0017.jpg"
-    ]
+      "/images/general-2/2023/IMG-20231105-WA0009.webp",
+      "/images/general-2/2023/IMG-20231105-WA0013.webp",
+      "/images/general-2/2023/IMG-20231105-WA0014.webp",
+      "/images/general-2/2023/IMG-20231105-WA0010.webp",
+      "/images/general-2/2023/IMG-20231105-WA0007.webp",
+      "/images/general-2/2023/IMG-20231105-WA0008.webp",
+      "/images/general-2/2023/IMG-20231105-WA0011.webp",
+      "/images/general-2/2023/IMG-20231105-WA0016.webp",
+      "/images/general-2/2023/IMG-20231105-WA0015.webp",
+      "/images/general-2/2023/IMG-20231105-WA0006.webp",
+      "/images/general-2/2023/IMG-20231105-WA0012.webp",
+      "/images/general-2/2023/IMG-20231105-WA0017.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "nuestro-trabajo-social",
@@ -485,11 +509,12 @@ export const stories = [
       "Ser solidario, valor humano."
     ],
     "gallery": [
-      "/images/general-2/2023/IMG-20231031-WA0041.jpg",
-      "/images/general-2/2023/IMG-20231031-WA0038.jpg",
-      "/images/general-2/2023/IMG-20231031-WA0039.jpg",
-      "/images/general-2/2023/IMG-20231031-WA0040.jpg"
-    ]
+      "/images/general-2/2023/IMG-20231031-WA0041.webp",
+      "/images/general-2/2023/IMG-20231031-WA0038.webp",
+      "/images/general-2/2023/IMG-20231031-WA0039.webp",
+      "/images/general-2/2023/IMG-20231031-WA0040.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "en-el-sistema-de-salud-madre-rafols-continuamos-siendo-porta",
@@ -501,14 +526,15 @@ export const stories = [
       "¡Ser solidario, valor humano!"
     ],
     "gallery": [
-      "/images/general-2/2023/IMG-20231014-WA0055.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0054.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0053.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0052.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0057.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0051.jpg",
-      "/images/general-2/2023/IMG-20231014-WA0056.jpg"
-    ]
+      "/images/general-2/2023/IMG-20231014-WA0055.webp",
+      "/images/general-2/2023/IMG-20231014-WA0054.webp",
+      "/images/general-2/2023/IMG-20231014-WA0053.webp",
+      "/images/general-2/2023/IMG-20231014-WA0052.webp",
+      "/images/general-2/2023/IMG-20231014-WA0057.webp",
+      "/images/general-2/2023/IMG-20231014-WA0051.webp",
+      "/images/general-2/2023/IMG-20231014-WA0056.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "congreso-mundial-pueri-cantores-roma-2023",
@@ -521,7 +547,8 @@ export const stories = [
       "Cta.Corriente BNC: 0191-0032-47-2132087209.\nTitular: Unidad Educativa Instituto Arquidiocesano Niños Cantores Del Zulia\nRif.: J-07016420-4",
       "Puedes comunicarte a través del número 0058.414.660.1192."
     ],
-    "video": "/images/general-2/video/VID-20230906-WA0013.mp4"
+    "video": "/images/general-2/video/VID-20230906-WA0013.mp4",
+    "year": null
   },
   {
     "slug": "madre-rafols-organizo-jornada-medica-gratuita-en-la-parroqui",
@@ -534,12 +561,13 @@ export const stories = [
       "¡Ser solidario, valor humano!"
     ],
     "gallery": [
-      "/images/general-2/2023/IMG-20230911-WA0011.jpg",
-      "/images/general-2/2023/IMG-20230911-WA0010.jpg",
-      "/images/general-2/2023/IMG-20230911-WA0013.jpg",
-      "/images/general-2/2023/IMG-20230911-WA0012.jpg",
-      "/images/general-2/2023/IMG-20230911-WA0014.jpg"
-    ]
+      "/images/general-2/2023/IMG-20230911-WA0011.webp",
+      "/images/general-2/2023/IMG-20230911-WA0010.webp",
+      "/images/general-2/2023/IMG-20230911-WA0013.webp",
+      "/images/general-2/2023/IMG-20230911-WA0012.webp",
+      "/images/general-2/2023/IMG-20230911-WA0014.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "madre-rafols-va-a-tu-parroquia",
@@ -553,14 +581,15 @@ export const stories = [
       "¡Ser solidario, valor humano!"
     ],
     "gallery": [
-      "/images/general-2/2023/IMG-20230710-WA0018.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0019.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0020.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0021.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0017.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0022.jpg",
-      "/images/general-2/2023/IMG-20230710-WA0016.jpg"
-    ]
+      "/images/general-2/2023/IMG-20230710-WA0018.webp",
+      "/images/general-2/2023/IMG-20230710-WA0019.webp",
+      "/images/general-2/2023/IMG-20230710-WA0020.webp",
+      "/images/general-2/2023/IMG-20230710-WA0021.webp",
+      "/images/general-2/2023/IMG-20230710-WA0017.webp",
+      "/images/general-2/2023/IMG-20230710-WA0022.webp",
+      "/images/general-2/2023/IMG-20230710-WA0016.webp"
+    ],
+    "year": 2023
   },
   {
     "slug": "instituto-arquidiocesano-ninos-cantores-del-zulia",
@@ -570,7 +599,8 @@ export const stories = [
       "300 niños de las comunidades más desfavorecidas económicamente de la ciudad de Maracaibo y del Municipio San Francisco reciben formación educativa y coral a través del Instituto Arquidiocesano Niños Cantores del Zulia.",
       "Con tu aporte económico ayudas a sostener esta emblemática obra educativa y cultural del estado Zulia."
     ],
-    "video": "/images/general-2/video/lv_0_20230306075835.mp4"
+    "video": "/images/general-2/video/lv_0_20230306075835.mp4",
+    "year": null
   },
   {
     "slug": "nuestro-trabajo-social-2",
@@ -579,7 +609,8 @@ export const stories = [
     "body": [
       "Dentro de nuestra filosofía institucional el don de la caridad tiene un valor fundamental ya que nos permite exaltar valores humanos como la solidaridad."
     ],
-    "video": "/images/general-2/video/video6.mp4"
+    "video": "/images/general-2/video/video6.mp4",
+    "year": null
   },
   {
     "slug": "intervencion-quirurgica-de-la-nina-ivanoska-jaspe-de-un-fibr",
@@ -589,7 +620,8 @@ export const stories = [
       "Cómo parte de nuestro trabajo social con las comunidades y en alianza institucional con la Fundación Cambiando Vidas y la Alcaldía de San Francisco, el pasado 06 de octubre se realizó una intervención quirúrgica a la niña Ivanoska Jireth Jaspe Montes, quién tenía un Tumor Híbrido en mandíbula (Fibroma osificante juvenil y Granuloma central de células gigantes).",
       "Para nuestro equipo de salud y la familia Madre Rafols, es una motivación realizar este tipo de ayudas sociales que permiten mejorar significativamente la calidad de vida de esta niña y su entorno familiar."
     ],
-    "video": "/images/general-2/video/VID-20221018-WA0031.mp4"
+    "video": "/images/general-2/video/VID-20221018-WA0031.mp4",
+    "year": null
   },
   {
     "slug": "hospital-madre-rafols-organizo-jornada-medica-para-las-comun",
@@ -601,14 +633,15 @@ export const stories = [
       "La jornada consistió en control de hipertensión arterial, control de glicemia, consulta de salud preventiva,control de patologías familiares, chequeo médico general y cardiovasculares escolares."
     ],
     "gallery": [
-      "/images/general-2/2022/IMG-20220928-WA0007.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0013.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0012.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0008.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0009.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0010.jpg",
-      "/images/general-2/2022/IMG-20220928-WA0011.jpg"
-    ]
+      "/images/general-2/2022/IMG-20220928-WA0007.webp",
+      "/images/general-2/2022/IMG-20220928-WA0013.webp",
+      "/images/general-2/2022/IMG-20220928-WA0012.webp",
+      "/images/general-2/2022/IMG-20220928-WA0008.webp",
+      "/images/general-2/2022/IMG-20220928-WA0009.webp",
+      "/images/general-2/2022/IMG-20220928-WA0010.webp",
+      "/images/general-2/2022/IMG-20220928-WA0011.webp"
+    ],
+    "year": 2022
   },
   {
     "slug": "apoyemos-al-proyecto-ninos-cantores-de-zulia",
@@ -618,7 +651,8 @@ export const stories = [
       "El Programa Benéfico: “Apadrina Un Niño Cantor”, ofrece a personas e instituciones la oportunidad de contribuir solidariamente al sostenimiento de este Patrimonio Educativo – Cultural Zuliano, como lo es: Niños Cantores del Zulia.",
       "Con tu donación puedes \"Apadrinar un Niño Cantor\" y ofrecerle una oportunidad formativa de excelencia a niños venezolanos de escasos recursos económicos."
     ],
-    "video": "/images/general-2/video/El día a día del Proyecto Educativo Cultural Niños Cantores del Zulia.mp4"
+    "video": "/images/general-2/video/El día a día del Proyecto Educativo Cultural Niños Cantores del Zulia.mp4",
+    "year": null
   },
   {
     "slug": "jornada-nacional-zulia-sonrie-2022",
@@ -630,8 +664,9 @@ export const stories = [
       "Desde el Sistema de Salud Madre Rafols seguimos trabajando arduamente para dar atención a los niños y niñas que padecen este tipo de patologías y junto a un grupo humano y de profesionales devolverles a estos niños las funciones de respiración, succión, deglución, masticación y fonación."
     ],
     "gallery": [
-      "/images/general-2/2022/IMG-20220930-WA0019.jpg"
-    ]
+      "/images/general-2/2022/IMG-20220930-WA0019.webp"
+    ],
+    "year": 2022
   },
   {
     "slug": "alianza-con-el-instituto-arquidiocesano-ninos-cantores-del-z",
@@ -641,8 +676,9 @@ export const stories = [
       "El Instituto Arquidiocesano Niños Cantores del Zulia, es un Coro que tiene una Institución; he allí la originalidad de su proyecto educativo. Ofrecen una formación integral a niños de escasos recursos económicos, que hoy se educan, y mañana serán los constructores de la sociedad venezolana."
     ],
     "gallery": [
-      "/images/general-2/NC/IMG-20220125-WA0100.jpg"
-    ]
+      "/images/general-2/NC/IMG-20220125-WA0100.webp"
+    ],
+    "year": null
   },
   {
     "slug": "jornada-especial-de-medicina-general-odontologia-y-optometri",
@@ -654,12 +690,13 @@ export const stories = [
       "Invitamos a la comunidad a sumarse a estas actividades lúdicas que permiten desarrollar una mente y cuerpo sano."
     ],
     "gallery": [
-      "/images/general-2/2022/IMG-20220905-WA0025.jpg",
-      "/images/general-2/2022/IMG-20220905-WA0026.jpg",
-      "/images/general-2/2022/IMG-20220905-WA0027.jpg",
-      "/images/general-2/2022/IMG-20220905-WA0028.jpg",
-      "/images/general-2/2022/IMG-20220905-WA0024.jpg"
-    ]
+      "/images/general-2/2022/IMG-20220905-WA0025.webp",
+      "/images/general-2/2022/IMG-20220905-WA0026.webp",
+      "/images/general-2/2022/IMG-20220905-WA0027.webp",
+      "/images/general-2/2022/IMG-20220905-WA0028.webp",
+      "/images/general-2/2022/IMG-20220905-WA0024.webp"
+    ],
+    "year": 2022
   },
   {
     "slug": "alianza-con-la-fundacion-creando-abrazos-permite-crear-una-p",
@@ -670,7 +707,8 @@ export const stories = [
       "Este plan piloto que se ha desarrollado con la Fundación Creando Abrazos nos llena de emoción ya que permitirá ayudar a niños de escasos recursos económicos que tengan este tipo de condición especial para mejorar su calidad de vida.",
       "Invitamos a los padres de niños con esta condición asistir a las instalaciones del Hospital Madre Rafols donde le atenderemos para ofrecerles la posibilidad de tener este tipo de prótesis."
     ],
-    "video": "/images/general-2/video/video15.mp4"
+    "video": "/images/general-2/video/video15.mp4",
+    "year": null
   },
   {
     "slug": "proyecto-europana",
@@ -684,7 +722,8 @@ export const stories = [
       "/images/general/euro.jpg",
       "/images/general/euro1.jpg",
       "/images/general/euro2.jpg"
-    ]
+    ],
+    "year": null
   },
   {
     "slug": "nuestro-trabajo-social-3",
@@ -694,7 +733,8 @@ export const stories = [
       "En medio de esta terrible pandemia nuestro trabajo se sigue fortaleciendo acompañando a nuestros usuarios de las comunidades más necesitadas.",
       "Desde el Sistema de Salud Madre Rafols queremos compartir la experiencia de estas ayudas canalizadas a través de nuestro departamento de trabajo social donde contribuimos a la restitución de la salud de estos pacientes."
     ],
-    "video": "/images/general-2/video/video1.mp4"
+    "video": "/images/general-2/video/video1.mp4",
+    "year": null
   },
   {
     "slug": "jornada-de-operacion",
@@ -703,7 +743,8 @@ export const stories = [
     "body": [
       "Conmemoramos el Día Internacional de la lucha contra el Cáncer de Mama con una Jornada de operación de esta patología a bajos costos con nuestro Mastologo Dr. Jonathan Molina en las instalaciones del Hospital Madre Rafols. Compartimos las impresiones del especialista y familiares de las usuarias."
     ],
-    "video": "/images/general-2/video/video8.mp4"
+    "video": "/images/general-2/video/video8.mp4",
+    "year": null
   },
   {
     "slug": "el-nino-jesus-eloy",
@@ -714,7 +755,8 @@ export const stories = [
       "Allí lo reciben con amor sus terapistas: Leilana Ruiz, en lo físico y Monica Inciarte en el desarrollo del lenguaje.",
       "El niño Jesús Eloy avanza en sus logros y es el consentido en el Ambulatorio, tanto por los familiares que lo acompañan cómo los especialistas que lo atienden además de todo el personal."
     ],
-    "video": "/images/general-2/video/video1.mp4"
+    "video": "/images/general-2/video/video1.mp4",
+    "year": null
   },
   {
     "slug": "nuestra-labor-social",
@@ -724,6 +766,7 @@ export const stories = [
       "Dentro de la labor social que realizamos en favor de los más necesitados en el Sistema de Salud Madre Rafols queremos compartir con nuestros usuarios la recuperación del labio paladar hendido que poco a poco se va dando en la vida de la niña Milagros Briceño y lo que representa también para todos sus familiares.",
       "Seguro estamos que así como nosotros la comunidad zuliana celebra los avances que diariamente vamos dando en función de la restitución de la salud de los más vulnerables. Agradecemos la labor de todo el personal médico, odontológico y social, además del fortalecimiento en la alianza con la Fundación Cambiando Vidas @cambiandovidasvenezuela para hacer posible este tipo de intervenciones para el bienestar de estos niños."
     ],
-    "video": "/images/general-2/video/video2.mp4"
+    "video": "/images/general-2/video/video2.mp4",
+    "year": null
   }
 ];

@@ -13,16 +13,16 @@ const {
   title = 'Salud, esperanza y dignidad para quienes más lo necesitan',
   lead = 'Llevamos atención médica gratuita a familias vulnerables en Venezuela. Cada donación se convierte en una cirugía, un tratamiento o una vida transformada.',
   primaryCtaText = 'Quiero donar',
-  primaryCtaHref = '/donar',
+  primaryCtaHref = '/contactos',
   secondaryCtaText = 'Conoce nuestro trabajo',
   secondaryCtaHref = '/trabajo'
 } = Astro.props;
 
 const slides = [
-  { image: '/images/general/fondo2022.png', alt: 'Paciente atendido por el equipo médico del Sistema de Salud Madre Rafols' },
-  { image: '/images/general/IMG-20200803-WA0013.jpg', alt: 'Recién nacido junto a su madre en el Sistema de Salud Madre Rafols' },
-  { image: '/images/general/donacion.jpeg', alt: 'Entrega de insumos médicos durante una jornada de ayuda humanitaria' },
-  { image: '/images/general/foto.jpg', alt: 'Fachada del Sistema de Salud Madre Rafols en Maracaibo' }
+  { image: '/images/general/fondo2022.webp', alt: 'Paciente atendido por el equipo médico del Sistema de Salud Madre Rafols' },
+  { image: '/images/general/IMG-20200803-WA0013.webp', alt: 'Recién nacido junto a su madre en el Sistema de Salud Madre Rafols' },
+  { image: '/images/general/donacion.webp', alt: 'Entrega de insumos médicos durante una jornada de ayuda humanitaria' },
+  { image: '/images/general/foto-hero.webp', alt: 'Fachada del Sistema de Salud Madre Rafols en Maracaibo' }
 ];
 ---
 <section class="hero-carousel relative isolate overflow-hidden min-h-[560px] flex items-center" data-autoplay="5000">
@@ -32,31 +32,37 @@ const slides = [
       alt={slide.alt}
       class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
       style={{ opacity: i === 0 ? 1 : 0 }}
+      loading={i === 0 ? 'eager' : 'lazy'}
+      fetchpriority={i === 0 ? 'high' : 'low'}
+      decoding={i === 0 ? 'sync' : 'async'}
     />
   ))}
   <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/20"></div>
 
   <div class="container relative z-10 py-20">
-    <div class="max-w-[540px]">
-      <span class="section-label text-white/80">{label}</span>
-      <h1 class="text-white">{title}</h1>
-      <p class="max-w-[460px] text-[1.05rem] text-white/85 mb-4">{lead}</p>
-      <div class="flex gap-3.5 flex-wrap">
-        <a href={primaryCtaHref} class="btn btn-primary">{primaryCtaText}</a>
-        <a href={secondaryCtaHref} class="btn btn-secondary border-white text-white hover:bg-white hover:text-navy">{secondaryCtaText}</a>
+    <div class="flex items-center gap-8">
+      <img src="/images/general/logo.webp" alt="" class="hidden sm:block h-48 w-auto shrink-0 -ml-24 md:-ml-32 brightness-0 invert" />
+      <div class="max-w-[460px]">
+        <span class="section-label text-white/80">{label}</span>
+        <h1 class="text-white">{title}</h1>
+        <p class="max-w-[460px] text-[1.05rem] text-white/85 mb-4">{lead}</p>
+        <div class="flex gap-3.5 flex-wrap">
+          <a href={primaryCtaHref} class="btn btn-primary">{primaryCtaText}</a>
+          <a href={secondaryCtaHref} class="btn btn-secondary border-white text-white hover:bg-white hover:text-navy">{secondaryCtaText}</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <button type="button" class="hero-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white text-lg leading-none backdrop-blur-sm transition-colors" aria-label="Imagen anterior">‹</button>
-  <button type="button" class="hero-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white text-lg leading-none backdrop-blur-sm transition-colors" aria-label="Siguiente imagen">›</button>
-  <div class="hero-dots absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+  <button type="button" class="hero-prev hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 items-center justify-center text-white text-lg leading-none backdrop-blur-sm transition-colors" aria-label="Imagen anterior">‹</button>
+  <button type="button" class="hero-next hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 items-center justify-center text-white text-lg leading-none backdrop-blur-sm transition-colors" aria-label="Siguiente imagen">›</button>
+  <div class="hero-dots absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-1">
     {slides.map((_, i) => (
       <button
         type="button"
-        class={`hero-dot w-2.5 h-2.5 rounded-full transition-colors ${i === 0 ? 'bg-white' : 'bg-white/50'}`}
+        class="hero-dot w-6 h-6 flex items-center justify-center"
         aria-label={`Ir a la imagen ${i + 1}`}
-      ></button>
+      ><span class={`block w-2.5 h-2.5 rounded-full transition-colors ${i === 0 ? 'bg-white' : 'bg-white/50'}`}></span></button>
     ))}
   </div>
 </section>
@@ -78,8 +84,9 @@ const slides = [
         slide.style.opacity = i === current ? '1' : '0';
       });
       dots.forEach((dot, i) => {
-        dot.classList.toggle('bg-white', i === current);
-        dot.classList.toggle('bg-white/50', i !== current);
+        const visual = dot.querySelector('span');
+        visual?.classList.toggle('bg-white', i === current);
+        visual?.classList.toggle('bg-white/50', i !== current);
       });
     }
 

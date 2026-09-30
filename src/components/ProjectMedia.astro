@@ -8,7 +8,7 @@ interface Props {
 const { title, video, gallery, image } = Astro.props;
 ---
 {video && (
-  <video controls preload="metadata" class="w-full aspect-[16/10] object-cover bg-black">
+  <video controls preload="none" class="w-full aspect-[16/10] object-cover bg-black">
     <source src={video} type="video/mp4" />
   </video>
 )}
@@ -18,7 +18,7 @@ const { title, video, gallery, image } = Astro.props;
       <img
         src={src}
         alt={`${title} - foto ${i + 1}`}
-        loading={i === 0 ? 'eager' : 'lazy'}
+        loading="lazy"
         class="project-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
         style={{ opacity: i === 0 ? 1 : 0 }}
       />
@@ -33,7 +33,7 @@ const { title, video, gallery, image } = Astro.props;
   </div>
 )}
 {image && !video && (!gallery || gallery.length === 0) && (
-  <img src={image} alt={title} class="w-full aspect-[16/10] object-cover" />
+  <img src={image} alt={title} loading="lazy" class="w-full aspect-[16/10] object-cover" />
 )}
 
 <script>

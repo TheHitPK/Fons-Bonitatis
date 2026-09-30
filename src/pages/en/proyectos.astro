@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProjectMedia from '../../components/ProjectMedia.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const projects = [
+  {
+    title: 'Blessing of the Oncology Infusion Unit',
+    excerpt: 'Blessing of the Oncology Infusion Unit spaces at Hospital Madre Rafols, led by Mons. Alberto Ortega Martín, Apostolic Nuncio to Venezuela, and Mons. José Luis Azuaje Ayala, Metropolitan Archbishop of Maracaibo. We thank The Papal Foundation and Pope Francis for their generous donation in support of our patients\' health.',
+    video: '/images/general-2/video/VID-20241123-WA0037.mp4'
+  },
+  {
+    title: 'Embassy of the Federal Republic of Germany visits Hospital Madre Rafols',
+    excerpt: 'We thank the German Diplomatic Mission for its invaluable contribution to the development and growth of the institution, the local health system, and the health of our patients.',
+    gallery: [
+      '/images/general-2/2023/IMG-20231201-WA0026.webp',
+      '/images/general-2/2023/IMG-20231201-WA0027.webp',
+      '/images/general-2/2023/IMG-20231201-WA0028.webp',
+      '/images/general-2/2023/IMG-20231201-WA0029.webp',
+      '/images/general-2/2023/IMG-20231201-WA0031.webp',
+      '/images/general-2/2023/IMG-20231201-WA0033.webp'
+    ]
+  },
+  {
+    title: 'Madre Rafols opens its Intensive Care Unit',
+    excerpt: 'A new ICU expands our capacity to treat emergencies and critical cases with first-class technology for the region.',
+    video: '/images/general-2/video/317514635_3443025252599812_4586236264297397112_n.mp4'
+  },
+  {
+    title: 'Project supported by the European Union',
+    excerpt: 'Through this project, supported by the European Union, we bring supplies and humanitarian care to our staff and patients.',
+    video: '/images/general-2/video/videop.mp4'
+  }
+];
+---
+<BaseLayout title="Approved Projects" description="Projects and initiatives backed by Fons Bonitatis Foundation's institutional partners in Maracaibo, Venezuela." ogImage="/images/general/A10.png">
+  <PageHero
+    image="/images/general/A10.webp"
+    alt="Architectural interior of the Madre Rafols Health System"
+    label="Approved projects"
+    title="Partnerships that make every advance possible"
+    lead="Every project is possible thanks to organizations and institutions that trust our work and join the mission of bringing dignified health care to Venezuela."
+  />
+
+  <section class="section">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project, i) => (
+        <article class="bg-surface border border-border rounded-brand overflow-hidden" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+          <ProjectMedia title={project.title} video={project.video} gallery={project.gallery} />
+          <div class="p-6">
+            <h2 class="text-lg mb-2 text-navy">{project.title}</h2>
+            <p class="text-sm mb-0">{project.excerpt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Want to partner with us?"
+    text="We're looking for organizations and institutions who want to join our health, education, and research projects."
+    buttonText="Contact us"
+    buttonHref="/en/contactos"
+  />
+</BaseLayout>

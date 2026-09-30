@@ -14,12 +14,12 @@ const projects = [
     title: 'Embajada de la República Federal de Alemania visita el Hospital Madre Rafols',
     excerpt: 'Agradecemos a la Misión Diplomática alemana por su invaluable aporte en el desarrollo y crecimiento de la institución, del sistema de salud local, además de la salud de nuestros usuarios y pacientes.',
     gallery: [
-      '/images/general-2/2023/IMG-20231201-WA0026.jpg',
-      '/images/general-2/2023/IMG-20231201-WA0027.jpg',
-      '/images/general-2/2023/IMG-20231201-WA0028.jpg',
-      '/images/general-2/2023/IMG-20231201-WA0029.jpg',
-      '/images/general-2/2023/IMG-20231201-WA0031.jpg',
-      '/images/general-2/2023/IMG-20231201-WA0033.jpg'
+      '/images/general-2/2023/IMG-20231201-WA0026.webp',
+      '/images/general-2/2023/IMG-20231201-WA0027.webp',
+      '/images/general-2/2023/IMG-20231201-WA0028.webp',
+      '/images/general-2/2023/IMG-20231201-WA0029.webp',
+      '/images/general-2/2023/IMG-20231201-WA0031.webp',
+      '/images/general-2/2023/IMG-20231201-WA0033.webp'
     ]
   },
   {
@@ -34,9 +34,9 @@ const projects = [
   }
 ];
 ---
-<BaseLayout title="Proyectos Aprobados" description="Proyectos e iniciativas respaldadas por aliados institucionales de Fons Bonitatis Foundation." ogImage="/images/general/A10.png">
+<BaseLayout title="Proyectos Aprobados" description="Proyectos e iniciativas respaldadas por aliados institucionales de Fons Bonitatis Foundation en Maracaibo, Venezuela." ogImage="/images/general/A10.png">
   <PageHero
-    image="/images/general/A10.png"
+    image="/images/general/A10.webp"
     alt="Interior arquitectónico del Sistema de Salud Madre Rafols"
     label="Proyectos aprobados"
     title="Alianzas que hacen posible cada avance"
@@ -49,7 +49,7 @@ const projects = [
         <article class="bg-surface border border-border rounded-brand overflow-hidden" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
           <ProjectMedia title={project.title} video={project.video} gallery={project.gallery} />
           <div class="p-6">
-            <h3 class="text-lg mb-2 text-navy">{project.title}</h3>
+            <h2 class="text-lg mb-2 text-navy">{project.title}</h2>
             <p class="text-sm mb-0">{project.excerpt}</p>
           </div>
         </article>

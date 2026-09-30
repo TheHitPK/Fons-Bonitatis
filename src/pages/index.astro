@@ -14,9 +14,9 @@ const featuredSlugs = [
 ];
 const stories = featuredSlugs
   .map(slug => allStories.find(story => story.slug === slug))
-  .filter(Boolean);
+  .filter((story): story is NonNullable<typeof story> => Boolean(story));
 ---
-<BaseLayout title="Inicio">
+<BaseLayout title="Salud en Maracaibo, Venezuela" description="Fons Bonitatis Foundation es una fundación de salud en Maracaibo, estado Zulia, Venezuela, que ofrece atención médica gratuita a familias vulnerables.">
   <Hero />
   <ImpactStats />
   <PartnersStrip />

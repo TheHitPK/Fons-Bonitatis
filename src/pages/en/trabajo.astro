@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImpactStats from '../../components/ImpactStats.astro';
+import StoryCard from '../../components/StoryCard.astro';
+import { stories as allStories } from '../../data/stories.js';
+
+const stats = [
+  { value: '+3,200', label: 'Patients treated' },
+  { value: '+180', label: 'Free surgeries' },
+  { value: '12', label: 'Years of service' },
+  { value: '+40', label: 'Medical outreach days' }
+];
+
+const programs = [
+  {
+    title: 'Madre Rafols Health System',
+    text: 'Our hospital in Maracaibo offers consultations, surgeries, hospitalization, and free or low-cost maternal and infant care for families without resources.'
+  },
+  {
+    title: '"Madre Rafols va a tu Parroquia"',
+    text: 'Multidisciplinary medical teams visit parishes across Zulia, bringing consultations, vaccinations, medication, and surgeries to those who cannot travel to the hospital.'
+  },
+  {
+    title: 'Community medical outreach',
+    text: 'Health operations in vulnerable and indigenous communities, including the Yukpa and Barí peoples, with free comprehensive care.'
+  },
+  {
+    title: 'Institutional partnerships',
+    text: 'We work alongside the Sisters of Charity of Santa Ana, Fundación Cambiando Vidas, Cáritas Venezuela, and the University of Zulia to expand our impact.'
+  }
+];
+
+const featuredSlugs = [
+  'madre-rafols-acompano-a-la-red-de-amigos-con-diversidad-func',
+  'hospital-madre-rafols-brindo-asistencia-medica-gratuita-a-lo',
+  'proyecto-europana'
+];
+const storyTranslations = {
+  'madre-rafols-acompano-a-la-red-de-amigos-con-diversidad-func': {
+    title: 'Madre Rafols joins a 5K run for functional diversity',
+    excerpt: 'We joined the Network of Friends with Functional Diversity in their first 5K run/walk to help fund a prosthetic for young Angélica.'
+  },
+  'hospital-madre-rafols-brindo-asistencia-medica-gratuita-a-lo': {
+    title: 'Free medical care for the children of Tokuko',
+    excerpt: 'Together with the Sisters of Charity of Santa Ana, we brought a pediatric medical outreach day to the indigenous community of Tokuko.'
+  },
+  'proyecto-europana': {
+    title: 'The Europana Project',
+    excerpt: 'Through our partnership with Cáritas Venezuela and the Europana project, we continue supporting children and families in their recovery.'
+  }
+};
+const stories = featuredSlugs
+  .map(slug => allStories.find(story => story.slug === slug))
+  .filter((story): story is NonNullable<typeof story> => Boolean(story))
+  .map(story => ({
+    ...story,
+    title: storyTranslations[story.slug as keyof typeof storyTranslations].title,
+    excerpt: storyTranslations[story.slug as keyof typeof storyTranslations].excerpt,
+    href: `/en/historias#${story.slug}`,
+    linkText: 'Read story →'
+  }));
+---
+<BaseLayout title="Our Work" description="Learn about Fons Bonitatis Foundation's programs and medical outreach days in Maracaibo and Zulia State, Venezuela." ogImage="/images/general/IMG-20200803-WA0010.jpg">
+  <PageHero
+    image="/images/general/IMG-20200803-WA0010.webp"
+    alt="Madre Rafols Health System medical team during surgery"
+    label="Our social work"
+    title="We bring health to those who need it most"
+    lead="Through the Madre Rafols Health System and our traveling medical outreach days, we treat thousands of vulnerable families in Zulia state and indigenous communities across Venezuela every year."
+  />
+
+  <ImpactStats stats={stats} />
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Programs</span>
+      <h2>How we work</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {programs.map((program, i) => (
+          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+            <h3 class="text-lg mb-2">{program.title}</h3>
+            <p class="text-sm mb-0">{program.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container">
+      <span class="section-label">Recent stories</span>
+      <h2>The impact behind every outreach day</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        {stories.map((story, i) => (
+          <div data-aos="fade-up" data-aos-delay={i * 100}>
+            <StoryCard {...story} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

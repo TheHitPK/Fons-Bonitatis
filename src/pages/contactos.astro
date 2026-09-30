@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 ---
-<BaseLayout title="Contactos" description="Cómo contactar a Fons Bonitatis Foundation en Maracaibo, Venezuela." ogImage="/images/general/hmr.png">
+<BaseLayout title="Contacto en Maracaibo, Venezuela" description="Cómo contactar a Fons Bonitatis Foundation en Maracaibo, estado Zulia, Venezuela." ogImage="/images/general/hmr.png">
   <PageHero
-    image="/images/general/hmr.png"
+    image="/images/general/hmr.webp"
     alt="Fachada del Sistema de Salud Madre Rafols al atardecer"
     label="Contactos"
     title="Hablemos"
@@ -15,31 +15,33 @@ import PageHero from '../components/PageHero.astro';
     <div class="container grid grid-cols-1 md:grid-cols-2 gap-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="0">
-          <h3 class="text-lg mb-2">Dirección</h3>
+          <h2 class="text-lg mb-2">Dirección</h2>
           <p class="text-sm mb-0">Avenida Francisco de Miranda<br />Circunvalación 2, Maracaibo<br />Venezuela, Estado Zulia</p>
         </div>
         <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-lg mb-2">Correo</h3>
+          <h2 class="text-lg mb-2">Correo</h2>
           <p class="text-sm mb-0"><a href="mailto:contacto@fonsbonitatis.org" class="text-accent font-semibold">contacto@fonsbonitatis.org</a></p>
         </div>
         <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-lg mb-2">Teléfono</h3>
+          <h2 class="text-lg mb-2">Teléfono</h2>
           <p class="text-sm mb-0"><a href="tel:+12089910930" class="text-accent font-semibold">+1 (208) 991-0930</a></p>
         </div>
         <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="text-lg mb-2">Donaciones</h3>
-          <p class="text-sm mb-0"><a href="/donar" class="text-accent font-semibold">Quiero donar →</a></p>
+          <h2 class="text-lg mb-2">Donaciones</h2>
+          <p class="text-sm mb-0">Vía Zelle a nombre de <strong>Fons Bonitatis Foundation, Corp.</strong><br /><a href="mailto:fonsbonitatisfund@gmail.com" class="text-accent font-semibold">fonsbonitatisfund@gmail.com</a></p>
         </div>
       </div>
-      <div class="rounded-brand border border-border min-h-[320px] bg-surface flex flex-col items-center justify-center text-center p-8 gap-4" data-aos="fade-left">
-        <h3 class="text-lg mb-0">Visítanos en Maracaibo</h3>
-        <p class="text-sm mb-0 max-w-[320px]">Avenida Francisco de Miranda, Circunvalación 2, Maracaibo, Venezuela, Estado Zulia.</p>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Avenida+Francisco+de+Miranda+Circunvalacion+2+Maracaibo+Venezuela"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary"
-        >Ver en Google Maps</a>
+      <div class="flex flex-col gap-3" data-aos="fade-left">
+        <h2 class="text-lg mb-0">Visítanos en Maracaibo</h2>
+        <div class="rounded-brand border border-border overflow-hidden min-h-[320px] flex-1">
+          <iframe
+            src="https://www.google.com/maps?q=Hospital+Madre+Rafols+Maracaibo+Venezuela&output=embed"
+            class="w-full h-full min-h-[320px] border-0 block"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Fons Bonitatis Foundation en Maracaibo"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>

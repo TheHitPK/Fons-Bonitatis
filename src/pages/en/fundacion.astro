@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const values = [
+  { title: 'Ethics', text: 'We act with transparency and honesty in every decision and every partnership.' },
+  { title: 'Sustainability', text: 'We build programs that last and generate long-term impact.' },
+  { title: 'Cooperation', text: 'We work alongside partner institutions to multiply the reach of every project.' },
+  { title: 'Social commitment', text: 'We put the most vulnerable people at the center of every initiative.' },
+  { title: 'Human quality', text: 'We treat every patient and family with respect, warmth, and dignity.' },
+  { title: 'Scientific rigor', text: 'We base our work on medical evidence and best practices.' }
+];
+---
+<BaseLayout title="The Foundation" description="Mission, vision, and values of Fons Bonitatis Foundation, a health foundation based in Maracaibo, Venezuela." ogImage="/images/general/foto.png">
+  <PageHero
+    image="/images/general/foto-fundacion.webp"
+    alt="Chapel of the Madre Rafols Health System"
+    label="The Foundation"
+    title="Health, education, and dignity for Venezuela's most disadvantaged"
+    lead="We are a nonprofit charitable organization whose purpose is to provide human, financial, and technological resources to people and institutions offering solutions in health, education, scientific research, and the arts."
+  />
+
+  <section class="section bg-surface border-y border-border">
+    <div class="container grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div data-aos="fade-up">
+        <img src="/images/general-2/galeria/IMG-20220930-WA00244.webp" alt="Rotunda of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+        <span class="section-label">Mission</span>
+        <p class="mb-0">To provide human, financial, and technological resources to people and institutions offering solutions in health, education, scientific research, and the arts.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="120">
+        <img src="/images/general-2/galeria/IMG-20220930-WA0007.webp" alt="Dome of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+        <span class="section-label">Vision</span>
+        <p class="mb-0">To be a national and international reference organization in social, educational, scientific, and cultural aid, enabling the full development of the most vulnerable people and, by extension, of Venezuelan society.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="240">
+        <img src="/images/general/foto-fundacion.webp" alt="Chapel of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+        <span class="section-label">Values</span>
+        <p class="mb-0">Ethics, sustainability, cooperation, social commitment, human quality, and scientific rigor guide every decision and every partnership we make.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Our values</span>
+      <h2>The principles that guide every project</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+        {values.map((value, i) => (
+          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+            <h3 class="text-lg mb-2">{value.title}</h3>
+            <p class="text-sm mb-0">{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Join our mission"
+    text="Every donation strengthens the Madre Rafols Health System and the medical outreach days we bring to the most vulnerable families in Zulia."
+    buttonText="Donate now"
+    buttonHref="/en/contactos"
+  />
+</BaseLayout>

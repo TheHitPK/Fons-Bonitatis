@@ -1,0 +1,220 @@
+---
+import { chatbotWelcome, chatbotMenu } from '../data/chatbot.js';
+---
+<div class="fixed bottom-5 right-5 z-[60]">
+  <button
+    type="button"
+    id="chat-toggle"
+    class="relative w-14 h-14 rounded-full bg-accent hover:bg-accent-dark text-white shadow-lg flex items-center justify-center transition-colors duration-300"
+    aria-label="Abrir asistente virtual"
+    aria-expanded="false"
+  >
+    <svg id="chat-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute w-6 h-6 transition-all duration-300 ease-out opacity-100 rotate-0 scale-100">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+    <svg id="chat-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute w-6 h-6 transition-all duration-300 ease-out opacity-0 -rotate-90 scale-50">
+      <path d="M18 6 6 18M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div
+    id="chat-panel"
+    class="absolute bottom-[72px] right-0 w-[92vw] max-w-[360px] h-[70vh] max-h-[520px] bg-surface rounded-brand shadow-2xl border border-border flex flex-col overflow-hidden origin-bottom-right transition-all duration-300 ease-out opacity-0 scale-90 translate-y-3 pointer-events-none"
+    role="dialog"
+    aria-label="Asistente virtual de Fons Bonitatis Foundation"
+  >
+    <div class="bg-navy text-white px-4 py-3 flex items-center gap-3">
+      <img src="/images/general/logo.webp" alt="" class="h-8 w-8" />
+      <div class="leading-tight">
+        <p class="font-semibold text-sm m-0">Asistente FBF</p>
+        <p class="text-xs text-white/70 m-0">Aquí para ayudarte</p>
+      </div>
+    </div>
+
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3"></div>
+
+    <div id="chat-quick-replies" class="border-t border-border p-3 flex flex-wrap gap-2 overflow-y-auto max-h-[40%]"></div>
+  </div>
+</div>
+
+<script define:vars={{ chatbotWelcome, chatbotMenu }}>
+  const toggleBtn = document.getElementById('chat-toggle');
+
+  // Guard against duplicate initialization: Astro/Vite can re-run this inline
+  // script on hot-reload without a full page refresh, which would otherwise
+  // attach a second (and third, ...) click listener to the same button and
+  // make the open/close toggle misfire.
+  if (toggleBtn.dataset.chatBound === 'true') {
+    // Already initialized on this exact DOM node - nothing more to do.
+  } else {
+  toggleBtn.dataset.chatBound = 'true';
+
+  const iconOpen = document.getElementById('chat-icon-open');
+  const iconClose = document.getElementById('chat-icon-close');
+  const panel = document.getElementById('chat-panel');
+  const messagesEl = document.getElementById('chat-messages');
+  const repliesEl = document.getElementById('chat-quick-replies');
+
+  // This is a static multi-page site: every navigation is a full page load,
+  // which would normally reset the chat to closed/empty. sessionStorage
+  // survives navigation within the same tab (but not a fresh visit later),
+  // so the widget picks up exactly where the visitor left it.
+  const STORAGE_KEY = 'fbf-chat-state';
+
+  function loadState() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return { open: false, started: false, history: [] };
+  }
+
+  function saveState() {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {}
+  }
+
+  const state = loadState();
+
+  function addBotBubble(text, record = true) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bg-bg text-body rounded-brand rounded-tl-none px-3 py-2 text-sm max-w-[85%] self-start';
+    bubble.textContent = text;
+    messagesEl.appendChild(bubble);
+    if (record) {
+      state.history.push({ type: 'bot', text });
+      saveState();
+    }
+  }
+
+  function addUserBubble(text, record = true) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bg-accent text-white rounded-brand rounded-tr-none px-3 py-2 text-sm max-w-[85%] self-end';
+    bubble.textContent = text;
+    messagesEl.appendChild(bubble);
+    if (record) {
+      state.history.push({ type: 'user', text });
+      saveState();
+    }
+  }
+
+  function addLinks(links, record = true) {
+    if (!links || !links.length) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'flex flex-col gap-1.5 self-start max-w-[85%]';
+    links.forEach(link => {
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.label + ' →';
+      a.className = 'text-xs font-semibold text-accent hover:text-accent-dark transition-colors';
+      wrap.appendChild(a);
+    });
+    messagesEl.appendChild(wrap);
+    if (record) {
+      state.history.push({ type: 'links', links });
+      saveState();
+    }
+  }
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function renderMenu() {
+    repliesEl.innerHTML = '';
+    chatbotMenu.forEach(item => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = item.label;
+      btn.className = 'text-xs font-semibold bg-white border border-border rounded-full px-3 py-1.5 hover:border-accent hover:text-accent transition-colors';
+      btn.addEventListener('click', () => selectTopic(item.id));
+      repliesEl.appendChild(btn);
+    });
+  }
+
+  function selectTopic(id) {
+    const item = chatbotMenu.find(m => m.id === id);
+    if (!item) return;
+    addUserBubble(item.label);
+    addBotBubble(item.answer);
+    addLinks(item.links);
+    scrollToBottom();
+  }
+
+  function startConversation() {
+    if (state.started) return;
+    state.started = true;
+    addBotBubble(chatbotWelcome);
+    renderMenu();
+    scrollToBottom();
+  }
+
+  // Replays whatever was already said before this page load (without
+  // re-recording it) and rebuilds the quick-reply menu, which is empty DOM
+  // on every fresh page even though the conversation itself continues.
+  function restoreConversation() {
+    if (!state.started) return;
+    state.history.forEach(entry => {
+      if (entry.type === 'bot') addBotBubble(entry.text, false);
+      else if (entry.type === 'user') addUserBubble(entry.text, false);
+      else if (entry.type === 'links') addLinks(entry.links, false);
+    });
+    renderMenu();
+    scrollToBottom();
+  }
+
+  function openChat(persist = true) {
+    panel.classList.remove('opacity-0', 'scale-90', 'translate-y-3', 'pointer-events-none');
+    panel.classList.add('opacity-100', 'scale-100', 'translate-y-0', 'pointer-events-auto');
+
+    iconOpen.classList.remove('opacity-100', 'rotate-0', 'scale-100');
+    iconOpen.classList.add('opacity-0', 'rotate-90', 'scale-50');
+    iconClose.classList.remove('opacity-0', '-rotate-90', 'scale-50');
+    iconClose.classList.add('opacity-100', 'rotate-0', 'scale-100');
+
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleBtn.setAttribute('aria-label', 'Cerrar asistente virtual');
+    startConversation();
+
+    if (persist) {
+      state.open = true;
+      saveState();
+    }
+  }
+
+  function closeChat(persist = true) {
+    panel.classList.remove('opacity-100', 'scale-100', 'translate-y-0', 'pointer-events-auto');
+    panel.classList.add('opacity-0', 'scale-90', 'translate-y-3', 'pointer-events-none');
+
+    iconClose.classList.remove('opacity-100', 'rotate-0', 'scale-100');
+    iconClose.classList.add('opacity-0', '-rotate-90', 'scale-50');
+    iconOpen.classList.remove('opacity-0', 'rotate-90', 'scale-50');
+    iconOpen.classList.add('opacity-100', 'rotate-0', 'scale-100');
+
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.setAttribute('aria-label', 'Abrir asistente virtual');
+
+    if (persist) {
+      state.open = false;
+      saveState();
+    }
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (!state.open) {
+      openChat();
+    } else {
+      closeChat();
+    }
+  });
+
+  // Restore on load: rebuild any prior conversation, then snap the panel
+  // straight to its last open/closed state - no toggle animation, since
+  // there's no visible "closed" frame beforehand to animate from.
+  restoreConversation();
+  if (state.open) {
+    openChat(false);
+  }
+  } // end init guard
+</script>

@@ -24,7 +24,7 @@ const t = locale === 'en'
 <footer class="bg-navy text-white pt-12 pb-6 mt-16">
   <div class="container grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8">
     <div>
-      <img src="/images/general/fbnwhite.png" alt="Fons Bonitatis Foundation" class="h-14 w-auto block mb-3.5" />
+      <img src="/images/general/fbnwhite.webp" alt="Fons Bonitatis Foundation" class="h-14 w-auto block mb-3.5" width="300" height="133" />
       <p class="text-[#C7CEDE]" set:html={t.address} />
     </div>
     <div>
@@ -32,7 +32,7 @@ const t = locale === 'en'
       <ul class="flex flex-col gap-2 list-none p-0 m-0">
         {navItems.map(item => (
           <li>
-            <a href={item.href} class="text-[#C7CEDE] hover:text-accent transition-colors">{locale === 'en' ? item.en : item.es}</a>
+            <a href={locale === 'en' ? `/en${item.href}` : item.href} class="text-[#C7CEDE] hover:text-accent transition-colors">{locale === 'en' ? item.en : item.es}</a>
           </li>
         ))}
       </ul>
@@ -47,10 +47,10 @@ const t = locale === 'en'
     <div>
       <h3 class="text-white text-lg mb-3">{t.helpTitle}</h3>
       <p class="text-[#C7CEDE] mb-4">{t.helpText}</p>
-      <a href="/donar" class="btn btn-primary">{t.donate}</a>
+      <a href={locale === 'en' ? '/en/contactos' : '/contactos'} class="btn btn-primary">{t.donate}</a>
     </div>
   </div>
-  <div class="container mt-10 pt-6 border-t border-white/15 text-sm text-[#9AA3B8]">
-    <p>Copyright © {year} Fons Bonitatis Foundation</p>
+  <div class="container mt-10 pt-6 border-t border-white/15 text-sm">
+    <p class="text-[#C7CEDE]">Copyright © {year} Fons Bonitatis Foundation</p>
   </div>
 </footer>

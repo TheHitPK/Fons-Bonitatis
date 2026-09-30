@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+<BaseLayout title="Contact Us in Maracaibo, Venezuela" description="How to contact Fons Bonitatis Foundation in Maracaibo, Zulia State, Venezuela." ogImage="/images/general/hmr.png">
+  <PageHero
+    image="/images/general/hmr.webp"
+    alt="Madre Rafols Health System facade at sunset"
+    label="Contact"
+    title="Let's talk"
+    lead="Write to us or visit us. We're happy to answer your questions about donations, partnerships, or our health programs."
+  />
+
+  <section class="section">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="0">
+          <h2 class="text-lg mb-2">Address</h2>
+          <p class="text-sm mb-0">Avenida Francisco de Miranda<br />Circunvalación 2, Maracaibo<br />Venezuela, Zulia State</p>
+        </div>
+        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="text-lg mb-2">Email</h2>
+          <p class="text-sm mb-0"><a href="mailto:contacto@fonsbonitatis.org" class="text-accent font-semibold">contacto@fonsbonitatis.org</a></p>
+        </div>
+        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="text-lg mb-2">Phone</h2>
+          <p class="text-sm mb-0"><a href="tel:+12089910930" class="text-accent font-semibold">+1 (208) 991-0930</a></p>
+        </div>
+        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="300">
+          <h2 class="text-lg mb-2">Donations</h2>
+          <p class="text-sm mb-0">Via Zelle to <strong>Fons Bonitatis Foundation, Corp.</strong><br /><a href="mailto:fonsbonitatisfund@gmail.com" class="text-accent font-semibold">fonsbonitatisfund@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3" data-aos="fade-left">
+        <h2 class="text-lg mb-0">Visit us in Maracaibo</h2>
+        <div class="rounded-brand border border-border overflow-hidden min-h-[320px] flex-1">
+          <iframe
+            src="https://www.google.com/maps?q=Hospital+Madre+Rafols+Maracaibo+Venezuela&output=embed"
+            class="w-full h-full min-h-[320px] border-0 block"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Fons Bonitatis Foundation location in Maracaibo"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

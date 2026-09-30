@@ -3,6 +3,7 @@ import '../styles/global.css';
 import 'aos/dist/aos.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 
 interface Props {
   title: string;
@@ -23,13 +24,21 @@ const fullTitle = `${title} | Fons Bonitatis Foundation`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
+// Alternate-language URL for hreflang: same page, other locale prefix.
+// Mirrors the ES/EN switcher logic in Header.astro.
+const pathname = Astro.url.pathname;
+const esPath = locale === 'en' ? (pathname.replace(/^\/en/, '') || '/') : pathname;
+const enPath = locale === 'en' ? pathname : `/en${pathname}`;
+const esAltURL = new URL(esPath, Astro.site);
+const enAltURL = new URL(enPath, Astro.site);
+
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
   name: 'Fons Bonitatis Foundation',
   url: 'https://fonsbonitatis.org',
-  logo: new URL('/images/general/fbf1.png', Astro.site).toString(),
-  description: 'Organización caritativa sin fines de lucro que provee recursos de salud, educación e investigación científica a las comunidades más vulnerables de Venezuela.',
+  logo: new URL('/images/general/fbf1.webp', Astro.site).toString(),
+  description: 'Organización caritativa sin fines de lucro que provee recursos de salud, educación e investigación científica a las comunidades más vulnerables de Venezuela, con sede en Maracaibo, estado Zulia.',
   email: 'contacto@fonsbonitatis.org',
   telephone: '+1-208-991-0930',
   address: {
@@ -38,7 +47,17 @@ const orgSchema = {
     addressLocality: 'Maracaibo',
     addressRegion: 'Zulia',
     addressCountry: 'VE'
-  }
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 10.6449,
+    longitude: -71.6631
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Maracaibo' },
+    { '@type': 'State', name: 'Zulia' },
+    { '@type': 'Country', name: 'Venezuela' }
+  ]
 };
 ---
 <!doctype html>
@@ -49,11 +68,35 @@ const orgSchema = {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
+
+    {/* Local SEO: ties every page to Maracaibo/Zulia for geo-aware search
+        and lets Google serve the right language version per visitor. */}
+    <meta name="geo.region" content="VE-V" />
+    <meta name="geo.placename" content="Maracaibo, Zulia" />
+    <meta name="geo.position" content="10.6449;-71.6631" />
+    <meta name="ICBM" content="10.6449, -71.6631" />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="es" href={esAltURL} />
+        <link rel="alternate" hreflang="en" href={enAltURL} />
+        <link rel="alternate" hreflang="x-default" href={esAltURL} />
+      </>
+    )}
     <title>{fullTitle}</title>
     <link rel="icon" type="image/png" href="/images/general/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+    {/* Loaded non-blocking: the font swaps in once fetched (font-display:swap
+        already covers the flash), instead of holding up first paint for it. */}
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" />
+    </noscript>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fons Bonitatis Foundation" />
@@ -62,6 +105,7 @@ const orgSchema = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_VE'} />
+    <meta property="og:locale:alternate" content={locale === 'en' ? 'es_VE' : 'en_US'} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
@@ -76,6 +120,7 @@ const orgSchema = {
       <slot />
     </main>
     <Footer />
+    <ChatWidget />
     <script>
       import AOS from 'aos';
 

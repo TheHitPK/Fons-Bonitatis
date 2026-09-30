@@ -36,24 +36,24 @@ const storyTranslations = {
 };
 const stories = storySlugs
   .map(slug => allStories.find(s => s.slug === slug))
-  .filter(Boolean)
+  .filter((story): story is NonNullable<typeof story> => Boolean(story))
   .map(story => ({
     ...story,
-    title: storyTranslations[story.slug].title,
-    excerpt: storyTranslations[story.slug].excerpt,
-    href: `/historias#${story.slug}`,
+    title: storyTranslations[story.slug as keyof typeof storyTranslations].title,
+    excerpt: storyTranslations[story.slug as keyof typeof storyTranslations].excerpt,
+    href: `/en/historias#${story.slug}`,
     linkText: 'Read story →'
   }));
 ---
-<BaseLayout title="Home" description="Fons Bonitatis Foundation - Health, hope and dignity for those who need it most.">
+<BaseLayout title="Healthcare in Maracaibo, Venezuela" description="Fons Bonitatis Foundation is a health foundation in Maracaibo, Zulia State, Venezuela, providing free medical care to vulnerable families.">
   <Hero
     label="Sistema de Salud Madre Rafols"
     title="Health, hope and dignity for those who need it most"
     lead="We bring free medical care to vulnerable families in Venezuela. Every donation becomes a surgery, a treatment, or a transformed life."
     primaryCtaText="Donate now"
-    primaryCtaHref="/donar"
+    primaryCtaHref="/en/contactos"
     secondaryCtaText="See our work"
-    secondaryCtaHref="/trabajo"
+    secondaryCtaHref="/en/trabajo"
   />
   <ImpactStats stats={stats} />
   <PartnersStrip label="In partnership with" />
@@ -73,7 +73,7 @@ const stories = storySlugs
     title="You know exactly where your donation goes"
     text="Every contribution goes directly to surgeries, treatments, medication, and medical outreach days for the most vulnerable families in Zulia."
     buttonText="Learn about our mission"
-    buttonHref="/fundacion"
+    buttonHref="/en/fundacion"
     buttonVariant="secondary"
   />
 </BaseLayout>
