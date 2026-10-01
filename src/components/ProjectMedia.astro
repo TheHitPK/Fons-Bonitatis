@@ -6,9 +6,13 @@ interface Props {
   image?: string;
 }
 const { title, video, gallery, image } = Astro.props;
+// preload="none" skips fetching the video itself (needed so paginated pages
+// like /historias don't pull dozens of hidden videos at once), but that also
+// means no first-frame thumbnail - a poster image fills that gap instead.
+const videoPoster = video?.replace(/\.mp4$/i, '.poster.webp');
 ---
 {video && (
-  <video controls preload="none" class="w-full aspect-[16/10] object-cover bg-black">
+  <video controls preload="none" poster={videoPoster} class="w-full aspect-[16/10] object-cover bg-black">
     <source src={video} type="video/mp4" />
   </video>
 )}
