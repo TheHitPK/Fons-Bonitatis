@@ -13,9 +13,9 @@ const { image, alt, label, title, lead } = Astro.props;
   <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/20"></div>
   <div class="container relative z-10 py-16">
     <div class="max-w-[640px]">
-      <span class="section-label text-white/80">{label}</span>
-      <h1 class="text-white">{title}</h1>
-      {lead && <p class="text-lg text-white/85 mb-0">{lead}</p>}
+      <span class="section-label text-white/80 [animation:rise-in_0.7s_ease-out_both]">{label}</span>
+      <h1 class="text-white [animation:rise-in_0.7s_ease-out_both_0.1s]">{title}</h1>
+      {lead && <p class="text-lg text-white/85 mb-0 [animation:rise-in_0.7s_ease-out_both_0.2s]">{lead}</p>}
     </div>
   </div>
 </section>

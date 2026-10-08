@@ -19,12 +19,26 @@
   img { @apply max-w-full block; }
 }
 
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer components {
   .container {
     @apply max-w-content mx-auto px-6;
   }
   .btn {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold font-body cursor-pointer transition-colors duration-200;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold font-body cursor-pointer transition-[background-color,color,transform] duration-200 active:scale-95;
   }
   .btn-primary {
     @apply bg-accent text-white border-none hover:bg-accent-dark;
@@ -33,9 +47,15 @@
     @apply bg-transparent text-navy border-[1.5px] border-solid border-navy hover:bg-navy hover:text-white;
   }
   .section-label {
-    @apply uppercase tracking-wider text-xs font-bold text-accent mb-2 block;
+    @apply text-sm font-semibold text-accent mb-2 block;
   }
   .section {
     @apply py-16;
+  }
+  .card {
+    @apply bg-surface border border-border rounded-brand p-6 transition-[box-shadow,transform] duration-200 hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(20,40,90,0.12)];
+  }
+  .card-media {
+    @apply bg-surface border border-border rounded-brand overflow-hidden transition-[box-shadow,transform] duration-200 hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(20,40,90,0.12)];
   }
 }

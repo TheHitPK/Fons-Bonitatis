@@ -43,10 +43,10 @@ const slides = [
     <div class="flex items-center gap-8">
       <img src="/images/general/logo.webp" alt="" class="hidden sm:block h-48 w-auto shrink-0 -ml-24 md:-ml-32 brightness-0 invert" />
       <div class="max-w-[460px]">
-        <span class="section-label text-white/80">{label}</span>
-        <h1 class="text-white">{title}</h1>
-        <p class="max-w-[460px] text-[1.05rem] text-white/85 mb-4">{lead}</p>
-        <div class="flex gap-3.5 flex-wrap">
+        <span class="section-label text-white/80 [animation:rise-in_0.7s_ease-out_both]">{label}</span>
+        <h1 class="text-white [animation:rise-in_0.7s_ease-out_both_0.1s]">{title}</h1>
+        <p class="max-w-[460px] text-[1.05rem] text-white/85 mb-4 [animation:rise-in_0.7s_ease-out_both_0.2s]">{lead}</p>
+        <div class="flex gap-3.5 flex-wrap [animation:rise-in_0.7s_ease-out_both_0.3s]">
           <a href={primaryCtaHref} class="btn btn-primary">{primaryCtaText}</a>
           <a href={secondaryCtaHref} class="btn btn-secondary border-white text-white hover:bg-white hover:text-navy">{secondaryCtaText}</a>
         </div>

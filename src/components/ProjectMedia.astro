@@ -23,7 +23,7 @@ const videoPoster = video?.replace(/\.mp4$/i, '.poster.webp');
         src={src}
         alt={`${title} - foto ${i + 1}`}
         loading="lazy"
-        class="project-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+        class="project-slide absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-700 group-hover:scale-105"
         style={{ opacity: i === 0 ? 1 : 0 }}
       />
     ))}
@@ -37,7 +37,7 @@ const videoPoster = video?.replace(/\.mp4$/i, '.poster.webp');
   </div>
 )}
 {image && !video && (!gallery || gallery.length === 0) && (
-  <img src={image} alt={title} loading="lazy" class="w-full aspect-[16/10] object-cover" />
+  <img src={image} alt={title} loading="lazy" class="w-full aspect-[16/10] object-cover transition-transform duration-300 group-hover:scale-105" />
 )}
 
 <script>

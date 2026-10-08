@@ -15,7 +15,7 @@ const partners = [
 ---
 <section class="py-10 bg-surface border-y border-border">
   <div class="container">
-    <p class="text-center text-xs uppercase tracking-wider font-bold text-body-muted mb-6">{label}</p>
+    <p class="text-center text-sm font-semibold text-body-muted mb-6">{label}</p>
     <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
       {partners.map((partner, i) => (
         <img
@@ -24,7 +24,7 @@ const partners = [
           title={partner.name}
           width={partner.width}
           height={partner.height}
-          class="h-32 w-auto max-w-[140px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+          class="h-32 w-auto max-w-[140px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-200"
           data-aos="zoom-in"
           data-aos-delay={i * 80}
         />

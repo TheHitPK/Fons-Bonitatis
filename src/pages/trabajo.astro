@@ -3,24 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ImpactStats from '../components/ImpactStats.astro';
 import StoryCard from '../components/StoryCard.astro';
+import Icon from '../components/Icon.astro';
 import { stories as allStories } from '../data/stories.js';
 
 const programs = [
   {
     title: 'Sistema de Salud Madre Rafols',
-    text: 'Nuestro hospital en Maracaibo ofrece consultas, cirugías, hospitalización y atención materno-infantil gratuita o a bajo costo para familias sin recursos.'
+    text: 'Nuestro hospital en Maracaibo ofrece consultas, cirugías, hospitalización y atención materno-infantil gratuita o a bajo costo para familias sin recursos.',
+    icon: 'hospital' as const
   },
   {
     title: '"Madre Rafols va a tu Parroquia"',
-    text: 'Equipos médicos multidisciplinarios visitan parroquias de todo el Zulia llevando consultas, vacunación, medicamentos y cirugías a quienes no pueden trasladarse hasta el hospital.'
+    text: 'Equipos médicos multidisciplinarios visitan parroquias de todo el Zulia llevando consultas, vacunación, medicamentos y cirugías a quienes no pueden trasladarse hasta el hospital.',
+    icon: 'map-pin' as const
   },
   {
     title: 'Jornadas médicas comunitarias',
-    text: 'Operativos de salud en comunidades vulnerables e indígenas, incluyendo a los pueblos Yukpa y Barí, con atención integral gratuita.'
+    text: 'Operativos de salud en comunidades vulnerables e indígenas, incluyendo a los pueblos Yukpa y Barí, con atención integral gratuita.',
+    icon: 'stethoscope' as const
   },
   {
     title: 'Alianzas institucionales',
-    text: 'Trabajamos junto a las Hermanas de la Caridad de Santa Ana, la Fundación Cambiando Vidas, Cáritas Venezuela y la Universidad del Zulia para ampliar nuestro impacto.'
+    text: 'Trabajamos junto a las Hermanas de la Caridad de Santa Ana, la Fundación Cambiando Vidas, Cáritas Venezuela y la Universidad del Zulia para ampliar nuestro impacto.',
+    icon: 'handshake' as const
   }
 ];
 
@@ -50,7 +55,10 @@ const stories = featuredSlugs
       <h2>Cómo trabajamos</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
         {programs.map((program, i) => (
-          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+          <div class="card" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+            <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+              <Icon name={program.icon} class="w-5 h-5" />
+            </div>
             <h3 class="text-lg mb-2">{program.title}</h3>
             <p class="text-sm mb-0">{program.text}</p>
           </div>

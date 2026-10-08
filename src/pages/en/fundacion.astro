@@ -2,14 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import Icon from '../../components/Icon.astro';
 
 const values = [
-  { title: 'Ethics', text: 'We act with transparency and honesty in every decision and every partnership.' },
-  { title: 'Sustainability', text: 'We build programs that last and generate long-term impact.' },
-  { title: 'Cooperation', text: 'We work alongside partner institutions to multiply the reach of every project.' },
-  { title: 'Social commitment', text: 'We put the most vulnerable people at the center of every initiative.' },
-  { title: 'Human quality', text: 'We treat every patient and family with respect, warmth, and dignity.' },
-  { title: 'Scientific rigor', text: 'We base our work on medical evidence and best practices.' }
+  { title: 'Ethics', text: 'We act with transparency and honesty in every decision and every partnership.', icon: 'scale' as const },
+  { title: 'Sustainability', text: 'We build programs that last and generate long-term impact.', icon: 'leaf' as const },
+  { title: 'Cooperation', text: 'We work alongside partner institutions to multiply the reach of every project.', icon: 'handshake' as const },
+  { title: 'Social commitment', text: 'We put the most vulnerable people at the center of every initiative.', icon: 'heart' as const },
+  { title: 'Human quality', text: 'We treat every patient and family with respect, warmth, and dignity.', icon: 'users' as const },
+  { title: 'Scientific rigor', text: 'We base our work on medical evidence and best practices.', icon: 'flask' as const }
 ];
 ---
 <BaseLayout title="The Foundation" description="Mission, vision, and values of Fons Bonitatis Foundation, a health foundation based in Maracaibo, Venezuela." ogImage="/images/general/foto.png">
@@ -23,18 +24,24 @@ const values = [
 
   <section class="section bg-surface border-y border-border">
     <div class="container grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div data-aos="fade-up">
-        <img src="/images/general-2/galeria/IMG-20220930-WA00244.webp" alt="Rotunda of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general-2/galeria/IMG-20220930-WA00244.webp" alt="Rotunda of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Mission</span>
         <p class="mb-0">To provide human, financial, and technological resources to people and institutions offering solutions in health, education, scientific research, and the arts.</p>
       </div>
-      <div data-aos="fade-up" data-aos-delay="120">
-        <img src="/images/general-2/galeria/IMG-20220930-WA0007.webp" alt="Dome of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up" data-aos-delay="120">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general-2/galeria/IMG-20220930-WA0007.webp" alt="Dome of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Vision</span>
         <p class="mb-0">To be a national and international reference organization in social, educational, scientific, and cultural aid, enabling the full development of the most vulnerable people and, by extension, of Venezuelan society.</p>
       </div>
-      <div data-aos="fade-up" data-aos-delay="240">
-        <img src="/images/general/foto-fundacion.webp" alt="Chapel of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up" data-aos-delay="240">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general/foto-fundacion.webp" alt="Chapel of the Madre Rafols Health System" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Values</span>
         <p class="mb-0">Ethics, sustainability, cooperation, social commitment, human quality, and scientific rigor guide every decision and every partnership we make.</p>
       </div>
@@ -47,7 +54,10 @@ const values = [
       <h2>The principles that guide every project</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
         {values.map((value, i) => (
-          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+          <div class="card" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+            <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+              <Icon name={value.icon} class="w-5 h-5" />
+            </div>
             <h3 class="text-lg mb-2">{value.title}</h3>
             <p class="text-sm mb-0">{value.text}</p>
           </div>

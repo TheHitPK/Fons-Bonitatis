@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import ImpactStats from '../../components/ImpactStats.astro';
 import StoryCard from '../../components/StoryCard.astro';
+import Icon from '../../components/Icon.astro';
 import { stories as allStories } from '../../data/stories.js';
 
 const stats = [
@@ -15,19 +16,23 @@ const stats = [
 const programs = [
   {
     title: 'Madre Rafols Health System',
-    text: 'Our hospital in Maracaibo offers consultations, surgeries, hospitalization, and free or low-cost maternal and infant care for families without resources.'
+    text: 'Our hospital in Maracaibo offers consultations, surgeries, hospitalization, and free or low-cost maternal and infant care for families without resources.',
+    icon: 'hospital' as const
   },
   {
     title: '"Madre Rafols va a tu Parroquia"',
-    text: 'Multidisciplinary medical teams visit parishes across Zulia, bringing consultations, vaccinations, medication, and surgeries to those who cannot travel to the hospital.'
+    text: 'Multidisciplinary medical teams visit parishes across Zulia, bringing consultations, vaccinations, medication, and surgeries to those who cannot travel to the hospital.',
+    icon: 'map-pin' as const
   },
   {
     title: 'Community medical outreach',
-    text: 'Health operations in vulnerable and indigenous communities, including the Yukpa and Barí peoples, with free comprehensive care.'
+    text: 'Health operations in vulnerable and indigenous communities, including the Yukpa and Barí peoples, with free comprehensive care.',
+    icon: 'stethoscope' as const
   },
   {
     title: 'Institutional partnerships',
-    text: 'We work alongside the Sisters of Charity of Santa Ana, Fundación Cambiando Vidas, Cáritas Venezuela, and the University of Zulia to expand our impact.'
+    text: 'We work alongside the Sisters of Charity of Santa Ana, Fundación Cambiando Vidas, Cáritas Venezuela, and the University of Zulia to expand our impact.',
+    icon: 'handshake' as const
   }
 ];
 
@@ -58,7 +63,7 @@ const stories = featuredSlugs
     title: storyTranslations[story.slug as keyof typeof storyTranslations].title,
     excerpt: storyTranslations[story.slug as keyof typeof storyTranslations].excerpt,
     href: `/en/historias#${story.slug}`,
-    linkText: 'Read story →'
+    linkText: 'Read story'
   }));
 ---
 <BaseLayout title="Our Work" description="Learn about Fons Bonitatis Foundation's programs and medical outreach days in Maracaibo and Zulia State, Venezuela." ogImage="/images/general/IMG-20200803-WA0010.jpg">
@@ -78,7 +83,10 @@ const stories = featuredSlugs
       <h2>How we work</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
         {programs.map((program, i) => (
-          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+          <div class="card" data-aos="fade-up" data-aos-delay={(i % 2) * 120}>
+            <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+              <Icon name={program.icon} class="w-5 h-5" />
+            </div>
             <h3 class="text-lg mb-2">{program.title}</h3>
             <p class="text-sm mb-0">{program.text}</p>
           </div>

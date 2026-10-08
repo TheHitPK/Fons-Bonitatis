@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Contacto en Maracaibo, Venezuela" description="Cómo contactar a Fons Bonitatis Foundation en Maracaibo, estado Zulia, Venezuela." ogImage="/images/general/hmr.png">
   <PageHero
@@ -14,19 +15,31 @@ import PageHero from '../components/PageHero.astro';
   <section class="section">
     <div class="container grid grid-cols-1 md:grid-cols-2 gap-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+            <Icon name="map-pin" class="w-5 h-5" />
+          </div>
           <h2 class="text-lg mb-2">Dirección</h2>
           <p class="text-sm mb-0">Avenida Francisco de Miranda<br />Circunvalación 2, Maracaibo<br />Venezuela, Estado Zulia</p>
         </div>
-        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+            <Icon name="envelope" class="w-5 h-5" />
+          </div>
           <h2 class="text-lg mb-2">Correo</h2>
           <p class="text-sm mb-0"><a href="mailto:contacto@fonsbonitatis.org" class="text-accent font-semibold">contacto@fonsbonitatis.org</a></p>
         </div>
-        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+            <Icon name="phone" class="w-5 h-5" />
+          </div>
           <h2 class="text-lg mb-2">Teléfono</h2>
           <p class="text-sm mb-0"><a href="tel:+12089910930" class="text-accent font-semibold">+1 (208) 991-0930</a></p>
         </div>
-        <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+            <Icon name="gift" class="w-5 h-5" />
+          </div>
           <h2 class="text-lg mb-2">Donaciones</h2>
           <p class="text-sm mb-0">Vía Zelle a nombre de <strong>Fons Bonitatis Foundation, Corp.</strong><br /><a href="mailto:fonsbonitatisfund@gmail.com" class="text-accent font-semibold">fonsbonitatisfund@gmail.com</a></p>
         </div>

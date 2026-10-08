@@ -2,14 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import Icon from '../components/Icon.astro';
 
 const values = [
-  { title: 'Ética', text: 'Actuamos con transparencia y honestidad en cada decisión y cada alianza.' },
-  { title: 'Sustentabilidad', text: 'Construimos programas que perduran y generan impacto a largo plazo.' },
-  { title: 'Cooperación', text: 'Trabajamos junto a instituciones aliadas para multiplicar el alcance de cada proyecto.' },
-  { title: 'Compromiso social', text: 'Ponemos a las personas más vulnerables en el centro de cada iniciativa.' },
-  { title: 'Calidad humana', text: 'Tratamos a cada paciente y familia con respeto, calidez y dignidad.' },
-  { title: 'Criterio científico', text: 'Fundamentamos nuestro trabajo en evidencia médica y buenas prácticas.' }
+  { title: 'Ética', text: 'Actuamos con transparencia y honestidad en cada decisión y cada alianza.', icon: 'scale' as const },
+  { title: 'Sustentabilidad', text: 'Construimos programas que perduran y generan impacto a largo plazo.', icon: 'leaf' as const },
+  { title: 'Cooperación', text: 'Trabajamos junto a instituciones aliadas para multiplicar el alcance de cada proyecto.', icon: 'handshake' as const },
+  { title: 'Compromiso social', text: 'Ponemos a las personas más vulnerables en el centro de cada iniciativa.', icon: 'heart' as const },
+  { title: 'Calidad humana', text: 'Tratamos a cada paciente y familia con respeto, calidez y dignidad.', icon: 'users' as const },
+  { title: 'Criterio científico', text: 'Fundamentamos nuestro trabajo en evidencia médica y buenas prácticas.', icon: 'flask' as const }
 ];
 ---
 <BaseLayout title="La Fundación" description="Misión, visión y valores de Fons Bonitatis Foundation, fundación de salud con sede en Maracaibo, Venezuela." ogImage="/images/general/foto.png">
@@ -23,18 +24,24 @@ const values = [
 
   <section class="section bg-surface border-y border-border">
     <div class="container grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div data-aos="fade-up">
-        <img src="/images/general-2/galeria/IMG-20220930-WA00244.webp" alt="Rotonda del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general-2/galeria/IMG-20220930-WA00244.webp" alt="Rotonda del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Misión</span>
         <p class="mb-0">Proveer recursos humanos, económicos y tecnológicos a personas e instituciones que ofrecen soluciones en materia de salud, educación, investigación científica y las bellas artes.</p>
       </div>
-      <div data-aos="fade-up" data-aos-delay="120">
-        <img src="/images/general-2/galeria/IMG-20220930-WA0007.webp" alt="Cúpula del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up" data-aos-delay="120">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general-2/galeria/IMG-20220930-WA0007.webp" alt="Cúpula del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Visión</span>
         <p class="mb-0">Ser una organización de referencia nacional e internacional en materia de ayuda social, educativa, científica y cultural, que permita el desarrollo integral de las personas más vulnerables y, por ende, de la sociedad venezolana.</p>
       </div>
-      <div data-aos="fade-up" data-aos-delay="240">
-        <img src="/images/general/foto-fundacion.webp" alt="Capilla del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover rounded-brand mb-4" />
+      <div class="group" data-aos="fade-up" data-aos-delay="240">
+        <div class="overflow-hidden rounded-brand mb-4">
+          <img src="/images/general/foto-fundacion.webp" alt="Capilla del Sistema de Salud Madre Rafols" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" />
+        </div>
         <span class="section-label">Valores</span>
         <p class="mb-0">Ética, sustentabilidad, cooperación, compromiso social, calidad humana y criterio científico guían cada decisión y cada alianza que hacemos.</p>
       </div>
@@ -47,7 +54,10 @@ const values = [
       <h2>Los principios que guían cada proyecto</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
         {values.map((value, i) => (
-          <div class="bg-surface border border-border rounded-brand p-6" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+          <div class="card" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+            <div class="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3">
+              <Icon name={value.icon} class="w-5 h-5" />
+            </div>
             <h3 class="text-lg mb-2">{value.title}</h3>
             <p class="text-sm mb-0">{value.text}</p>
           </div>

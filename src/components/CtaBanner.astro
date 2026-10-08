@@ -12,8 +12,10 @@ const btnClass = buttonVariant === 'secondary'
   ? 'btn btn-secondary border-white text-white hover:bg-white hover:text-navy'
   : 'btn btn-primary';
 ---
-<section class="section bg-navy rounded-brand text-white">
-  <div class="container max-w-[700px] mx-auto text-center flex flex-col items-center">
+<section class="section bg-navy rounded-brand text-white relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-accent/30 blur-[90px] pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-accent/20 blur-[80px] pointer-events-none" aria-hidden="true"></div>
+  <div class="container max-w-[700px] mx-auto text-center flex flex-col items-center relative z-10">
     {label && <span class="section-label text-white/80">{label}</span>}
     <h2 class="text-white">{title}</h2>
     <p class="text-white/90">{text}</p>
