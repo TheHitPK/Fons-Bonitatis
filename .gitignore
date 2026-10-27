@@ -5,3 +5,4 @@ dist.zip
 .astro/
 .DS_Store
 .claude/settings.local.json
+source-posts/

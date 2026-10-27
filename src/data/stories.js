@@ -1,5 +1,19 @@
 export const stories = [
   {
+    "slug": "jornada-gratuita-de-prevencion-y-despistaje-de-cancer-de-mama",
+    "title": "Sistema de Salud Madre Rafols realizó con éxito jornada gratuita de prevención y despistaje de cáncer de mama",
+    "excerpt": "En el marco del Mes Rosa, el Sistema de Salud Madre Rafols llevó a cabo con éxito una jornada gratuita de prevención y despistaje de cáncer de mama en Maracaibo…",
+    "body": [
+      "En el marco del Mes Rosa, el Sistema de Salud Madre Rafols llevó a cabo con éxito una jornada gratuita de prevención y despistaje de cáncer de mama en Maracaibo, reafirmando su compromiso con la salud, la detección temprana y el bienestar de la población.",
+      "La iniciativa brindó atención integral y especializada a través de un circuito de evaluación que incluyó acompañamiento psicológico, toma de signos vitales, triaje médico general y familiar, así como consultas con ginecólogos, mastólogos y cirujanos oncólogos, complementadas con estudios ecográficos para contribuir a la evaluación y el diagnóstico oportuno de esta enfermedad.",
+      "Con el propósito de ampliar el alcance de esta iniciativa y facilitar el acceso a los servicios de salud, la jornada se desarrolló simultáneamente en el Hospital Madre Rafols, con una disponibilidad de 75 cupos, y el Ambulatorio Los Modines, con 60 cupos. La actividad logró una importante captación de pacientes para la prevención, el despistaje y la evaluación diagnóstica, fortaleciendo la conciencia sobre la importancia de la detección temprana del cáncer de mama.",
+      "Madre Rafols ratifica su vocación de servicio y su compromiso con una atención médica humana, solidaria y accesible, especialmente para quienes más lo necesitan.",
+      "¡Ser solidario es un valor humano!"
+    ],
+    "video": "/images/general-2/video/jornada-despistaje-cancer-mama-2026.mp4",
+    "year": 2026
+  },
+  {
     "slug": "el-sistema-de-salud-madre-rafols-devuelve-la-alegria-a-un-pe",
     "title": "El Sistema de Salud Madre Rafols devuelve la alegría a un pequeño beisbolista",
     "excerpt": "José de Jesús Añez, de 9 años, proveniente del municipio Mene Mauroa, estado Falcón, recupera hoy su visión tras ser intervenido exitosamente de una grave lesión en su…",
